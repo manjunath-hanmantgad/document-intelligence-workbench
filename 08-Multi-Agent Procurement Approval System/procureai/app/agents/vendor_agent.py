@@ -13,8 +13,8 @@ class VendorAgent:
     def lookup_vendor(self, vendor_name: str) -> VendorRecord:
         conn = get_connection()
         cursor = conn.execute(
-            "SELECT vendor_id, vendor_name, status, risk_level, categories FROM vendors WHERE vendor_name = ?",
-            (vendor_name,),
+            "SELECT vendor_id, vendor_name, status, risk_level, categories FROM vendors WHERE LOWER(vendor_name) = LOWER(?)",
+            (vendor_name.strip(),),
         )
         row = cursor.fetchone()
         conn.close()

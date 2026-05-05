@@ -1,8 +1,9 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
+from typing import Optional
 
-from app.db.database import init_db
+from app.db.database import init_db, get_connection
 from app.config import HOST, PORT, CORS_ORIGINS
 from app.orchestrator import OrchestratorAgent
 from app.schemas.purchase_request import PurchaseRequest, PurchaseRequestResponse
@@ -54,6 +55,48 @@ def health():
 
 
 # ---- Purchase Request Endpoints ----
+
+@app.get("/purchase-requests")
+def list_purchase_requests(
+    department: Optional[str] = Query(None, description="Filter by department"),
+    vendor: Optional[str] = Query(None, description="Filter by vendor name"),
+    status: Optional[str] = Query(None, description="Filter by status (pending, approved, conditional_approval, rejected)"),
+    limit: int = Query(50, ge=1, le=200, description="Maximum results to return"),
+    offset: int = Query(0, ge=0, description="Offset for pagination"),
+):
+    conn = get_connection()
+    query = "SELECT * FROM purchase_requests WHERE 1=1"
+    params = []
+    if department:
+        query += " AND department = ?"
+        params.append(department)
+    if vendor:
+        query += " AND vendor LIKE ?"
+        params.append(f"%{vendor}%")
+    if status:
+        query += " AND status = ?"
+        params.append(status)
+    query += " ORDER BY created_at DESC LIMIT ? OFFSET ?"
+    params.extend([limit, offset])
+
+    cursor = conn.execute(query, params)
+    rows = cursor.fetchall()
+    count_cursor = conn.execute(
+        "SELECT COUNT(*) FROM purchase_requests WHERE 1=1"
+        + (" AND department=?" if department else "")
+        + (" AND vendor LIKE ?" if vendor else "")
+        + (" AND status=?" if status else ""),
+        [p for p in params[:-2]],
+    )
+    total = count_cursor.fetchone()[0]
+    conn.close()
+    return {
+        "total": total,
+        "limit": limit,
+        "offset": offset,
+        "results": [dict(r) for r in rows],
+    }
+
 
 @app.post("/purchase-requests/analyze", response_model=dict)
 def analyze_purchase_request(request: PurchaseRequest):
