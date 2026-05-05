@@ -12,37 +12,73 @@ An organization has multiple product features calling an LLM: support automation
 
 ## Architecture
 
-### Local Development
+LLM Observatory is organized around a clear product boundary: applications send LLM traffic through the gateway or submit completed traces through the ingestion API; the platform persists telemetry, runs evaluations, evaluates alert rules, and exposes operational views through the dashboard.
+
+### Service Boundary
 
 ```mermaid
 flowchart TD
-    A["Application or Demo Request"] --> B["FastAPI Gateway"]
-    B --> C["LLM Provider Wrapper"]
-    C --> D["Mock / OpenAI / Azure OpenAI"]
-    B --> E["DuckDB Metrics Store"]
-    E --> F["Batch Evaluation Engine"]
-    F --> E
-    E --> G["Streamlit Dashboard"]
-    E --> H["Alert Evaluator"]
-    H --> I["Console or Slack Webhook"]
+    A["Product Applications"] -->|"Proxy mode"| B["FastAPI Gateway"]
+    A -->|"Ingest mode"| C["Ingestion API"]
+    B --> D["Provider Layer"]
+    D --> E["Mock / OpenAI / Azure OpenAI"]
+    B --> F["Platform Database"]
+    C --> F
+    F --> G["Evaluation Worker"]
+    F --> H["Alert Worker"]
+    G --> F
+    H --> I["Incidents and Alert Channels"]
+    F --> J["Dashboard"]
+    K["JWT Users and Service API Keys"] --> B
+    K --> C
 ```
 
-### Future Azure Deployment
+### Data Flow
+
+```mermaid
+sequenceDiagram
+    participant App as Product Application
+    participant API as FastAPI Gateway
+    participant LLM as LLM Provider
+    participant DB as PostgreSQL or SQLite
+    participant Eval as Evaluation Worker
+    participant Alerts as Alert Worker
+    participant UI as Dashboard
+
+    App->>API: Authenticated chat or log ingestion
+    API->>LLM: Provider call when proxy mode is used
+    LLM-->>API: Completion, usage, latency, errors
+    API->>DB: Persist trace, cost, tokens, metadata
+    Eval->>DB: Read calls requiring evaluation
+    Eval->>DB: Store faithfulness, relevancy, risk scores
+    Alerts->>DB: Evaluate alert rules and create incidents
+    UI->>DB: Render metrics, traces, evaluations, incidents
+```
+
+### Forward Azure Deployment
 
 ```mermaid
 flowchart TD
     A["Product Services"] --> B["Azure Container Apps: Gateway"]
-    B --> C["Azure OpenAI"]
-    B --> D["Cosmos DB or Azure PostgreSQL"]
-    D --> E["Container Apps: Dashboard"]
-    D --> F["Evaluation Job"]
-    F --> C
-    F --> D
-    B --> G["Application Insights"]
-    H["Azure Key Vault"] --> B
-    H --> F
-    F --> I["Slack / Incident Channel"]
+    C["Internal Tools"] --> D["Azure Container Apps: Dashboard"]
+    B --> E["Azure OpenAI"]
+    B --> F["Azure PostgreSQL"]
+    D --> F
+    G["Container Apps Jobs: Evaluation Worker"] --> F
+    G --> E
+    H["Container Apps Jobs: Alert Worker"] --> F
+    H --> I["Slack / Email / Webhook"]
+    J["Azure Key Vault"] --> B
+    J --> G
+    J --> H
+    B --> K["Application Insights"]
+    G --> K
+    H --> K
 ```
+
+### Dashboard Preview
+
+![LLM Observatory dashboard](demo/llm-observatory-dashboard.png)
 
 ## Capabilities
 
@@ -59,7 +95,8 @@ flowchart TD
 - Hallucination, faithfulness, and relevancy scoring
 - Streamlit dashboard with latency, cost, logs, and evaluation results
 - Alert script for hallucination rate, latency, and failed calls
-- Docker Compose configuration
+- GitHub Actions CI for automated test validation
+- Docker Compose configuration for API, dashboard, PostgreSQL, and workers
 - Azure deployment placeholders without committed secrets
 
 ## Metrics
@@ -86,10 +123,6 @@ Implemented backend foundations:
 - [Security](docs/security.md)
 - [Phase 1 gap assessment](docs/phase-1-enterprise-gaps.md)
 - [Customer demo guide](docs/demo.md)
-
-## Dashboard Preview
-
-![LLM Observatory dashboard](demo/llm-observatory-dashboard.png)
 
 ## Quick Start
 
