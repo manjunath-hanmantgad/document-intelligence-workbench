@@ -38,7 +38,7 @@
 - Microsoft Entra ID / OIDC integration can be added for enterprise SSO.
 
 ### Data Protection
-- SQLite is suitable for single-instance development and demos.
+- SQLite is suitable for single-instance local deployments.
 - Production deployments should use managed PostgreSQL with encryption at rest.
 - PII data in audit logs should be anonymized or stored separately.
 - Consider data retention policies for audit logs and request history.
