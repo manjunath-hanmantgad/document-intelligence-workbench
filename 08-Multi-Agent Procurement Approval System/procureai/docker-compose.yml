@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  procureai:
+    build: .
+    container_name: procureai
+    ports:
+      - "8004:8004"
+    environment:
+      - LLM_PROVIDER=mock
+      - PROCUREAI_DB_PATH=/app/data/procureai.db
+      - PROCUREAI_POLICY_PATH=/app/data/procurement_policy.md
+      - APPROVAL_MATRIX_PATH=/app/data/approval_matrix.yaml
+      - CORS_ORIGINS=*
+      - JSON_LOGS=false
+      - LOG_LEVEL=INFO
+    volumes:
+      - procureai_data:/app/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8004/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  procureai_data:

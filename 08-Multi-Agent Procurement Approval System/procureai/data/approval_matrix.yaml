@@ -1,0 +1,20 @@
+approval_rules:
+  - max_amount: 25000
+    required_approvers: ["team_lead"]
+
+  - max_amount: 100000
+    required_approvers: ["department_manager"]
+
+  - max_amount: 500000
+    required_approvers: ["department_manager", "finance_controller"]
+
+  - max_amount: 1000000
+    required_approvers: ["department_manager", "finance_controller", "director"]
+
+special_categories:
+  software_subscription:
+    extra_approvers: ["security_team"]
+  legal_services:
+    extra_approvers: ["legal_team"]
+  hardware:
+    extra_approvers: ["it_asset_management"]
