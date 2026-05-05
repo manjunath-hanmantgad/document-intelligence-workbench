@@ -1,0 +1,980 @@
+AI Freelance Portfolio Strategy — Senior AI Engineer (10 YOE)
+
+  ---
+  EXECUTIVE SUMMARY
+
+  Target: Build 6–8 portfolio projects that map to verifiable freelance demand, not tutorial exercises.
+  Method: Market signal analysis → SNR scoring → project selection → demo-first design.
+  Core Thesis: Most AI freelancers compete on credentials. You win by competing on demonstrable outcomes in client-relevant contexts.
+
+  ---
+  SECTION 1: MARKET DEMAND ANALYSIS
+
+  Top 12 Recurring AI Problem Patterns
+
+  GROUP A — LLM Applications
+
+  ┌─────┬───────────────────────────────┬──────────────────────────────────────────────────────────────────────────────────┬───────────────────────────────────────────────────────┬────────────┬─────────────┬─────────────┬────────────┐
+  │  #  │        Problem Pattern        │                                Problem Statement                                 │                    Why Clients Pay                    │ Complexity │   Budget    │ Competition │  Signal    │
+  │     │                               │                                                                                  │                                                       │            │    Range    │             │   Score    │
+  ├─────┼───────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────┼────────────┼─────────────┼─────────────┼────────────┤
+  │ 1   │ Enterprise RAG / Knowledge    │ Internal docs, PDFs, wikis are unsearchable. Employees waste hours finding       │ Reduces support tickets, onboarding time, internal    │ High       │ $3K–$25K    │ Medium      │ 9          │
+  │     │ Base QA                       │ answers.                                                                         │ search costs                                          │            │             │             │            │
+  ├─────┼───────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────┼────────────┼─────────────┼─────────────┼────────────┤
+  │ 2   │ Domain-Specific AI Copilot    │ Legal, medical, finance professionals want AI that understands their domain      │ Billable-hour leverage; staff augmentation            │ High       │ $5K–$40K    │ Low         │ 9          │
+  │     │                               │ vocabulary and workflows                                                         │                                                       │            │             │             │            │
+  ├─────┼───────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────┼────────────┼─────────────┼─────────────┼────────────┤
+  │ 3   │ Document Intelligence         │ Contracts, invoices, reports need structured extraction at scale                 │ Replaces manual data entry; compliance-critical       │ Medium     │ $2K–$15K    │ Medium      │ 8          │
+  │     │ Pipeline                      │                                                                                  │                                                       │            │             │             │            │
+  ├─────┼───────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────────────┼────────────┼─────────────┼─────────────┼────────────┤
+  │ 4   │ AI Customer Support Agent     │ Tier-1 support is expensive and slow; FAQs don't scale                           │ Cost reduction per ticket; 24/7 coverage              │ Medium     │ $2K–$20K    │ High        │ 6          │
+  └─────┴───────────────────────────────┴──────────────────────────────────────────────────────────────────────────────────┴───────────────────────────────────────────────────────┴────────────┴─────────────┴─────────────┴────────────┘
+
+  GROUP B — AI Automation / Agents
+
+  ┌─────┬──────────────────────────────────────────┬─────────────────────────────────────────────────────────────────────────────┬─────────────────────────────────────────────────┬────────────┬─────────────┬─────────────┬─────────────┐
+  │  #  │             Problem Pattern              │                              Problem Statement                              │                 Why Clients Pay                 │ Complexity │   Budget    │ Competition │   Signal    │
+  │     │                                          │                                                                             │                                                 │            │    Range    │             │    Score    │
+  ├─────┼──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────┼────────────┼─────────────┼─────────────┼─────────────┤
+  │ 5   │ Multi-Agent Business Process Automation  │ Repetitive cross-system workflows (CRM → email → docs → approval) consume   │ Directly replaces FTE cost; measurable ROI      │ High       │ $5K–$30K    │ Low         │ 9           │
+  │     │                                          │ staff time                                                                  │                                                 │            │             │             │             │
+  ├─────┼──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────┼────────────┼─────────────┼─────────────┼─────────────┤
+  │ 6   │ AI-Powered Data Extraction / Web         │ Competitive intel, market data, lead enrichment at scale                    │ Feeds sales/strategy pipelines; high LTV        │ Medium     │ $2K–$12K    │ Medium      │ 8           │
+  │     │ Intelligence                             │                                                                             │ clients                                         │            │             │             │             │
+  ├─────┼──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────┼────────────┼─────────────┼─────────────┼─────────────┤
+  │ 7   │ Code Review & Generation Agent           │ Dev teams spend 20–30% time on review and boilerplate                       │ Accelerates shipping velocity; integrates into  │ High       │ $3K–$20K    │ Low         │ 8           │
+  │     │                                          │                                                                             │ CI/CD                                           │            │             │             │             │
+  ├─────┼──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────┼────────────┼─────────────┼─────────────┼─────────────┤
+  │ 8   │ AI Email / CRM Workflow Agent            │ Sales teams manually write follow-ups, log CRM entries, research prospects  │ Directly tied to revenue generation             │ Medium     │ $2K–$10K    │ Medium      │ 7           │
+  └─────┴──────────────────────────────────────────┴─────────────────────────────────────────────────────────────────────────────┴─────────────────────────────────────────────────┴────────────┴─────────────┴─────────────┴─────────────┘
+
+  GROUP C — MLOps / Deployment
+
+  ┌─────┬──────────────────────────────────────────────────┬───────────────────────────────────────────────────────────────────────────────────┬───────────────────────────────────┬────────────┬─────────────┬─────────────┬─────────────┐
+  │  #  │                 Problem Pattern                  │                                 Problem Statement                                 │          Why Clients Pay          │ Complexity │   Budget    │ Competition │   Signal    │
+  │     │                                                  │                                                                                   │                                   │            │    Range    │             │    Score    │
+  ├─────┼──────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────┼────────────┼─────────────┼─────────────┼─────────────┤
+  │ 9   │ LLM Fine-tuning Pipeline                         │ Off-the-shelf models don't match brand voice, domain terminology, or safety       │ Proprietary model = competitive   │ High       │ $5K–$35K    │ Low         │ 9           │
+  │     │                                                  │ requirements                                                                      │ moat                              │            │             │             │             │
+  ├─────┼──────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────┼────────────┼─────────────┼─────────────┼─────────────┤
+  │ 10  │ LLM Evaluation & Monitoring Framework            │ Production LLMs hallucinate, drift, and degrade silently                          │ Compliance, SLA, trust in AI      │ High       │ $4K–$20K    │ Very Low    │ 8           │
+  │     │                                                  │                                                                                   │ outputs                           │            │             │             │             │
+  ├─────┼──────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────┼────────────┼─────────────┼─────────────┼─────────────┤
+  │ 11  │ ML Model Deployment & Serving                    │ Models live in notebooks; can't be called by production systems                   │ Engineering necessity; not        │ Medium     │ $2K–$15K    │ Medium      │ 7           │
+  │     │ (FastAPI/Triton/vLLM)                            │                                                                                   │ optional                          │            │             │             │             │
+  └─────┴──────────────────────────────────────────────────┴───────────────────────────────────────────────────────────────────────────────────┴───────────────────────────────────┴────────────┴─────────────┴─────────────┴─────────────┘
+
+  GROUP D — Data + AI Systems
+
+  ┌─────┬──────────────────────────────────────┬────────────────────────────────────────────────────────────────────────────┬─────────────────────────────────────────────────┬────────────┬──────────────┬─────────────┬──────────────┐
+  │  #  │           Problem Pattern            │                             Problem Statement                              │                 Why Clients Pay                 │ Complexity │ Budget Range │ Competition │ Signal Score │
+  ├─────┼──────────────────────────────────────┼────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────┼────────────┼──────────────┼─────────────┼──────────────┤
+  │ 12  │ AI Analytics Co-Pilot / BI Assistant │ Analysts are bottlenecks; stakeholders can't self-serve complex SQL/charts │ Democratizes data access; reduces analyst queue │ High       │ $4K–$25K     │ Low         │ 8            │
+  └─────┴──────────────────────────────────────┴────────────────────────────────────────────────────────────────────────────┴─────────────────────────────────────────────────┴────────────┴──────────────┴─────────────┴──────────────┘
+
+  ---
+  SECTION 2: SIGNAL-TO-NOISE FRAMEWORK
+
+  Scoring Definitions
+
+  - Signal = Frequency of client postings + budget seriousness + urgency indicators (e.g., "ASAP", "production", "replacing current system")
+  - Noise = YouTube tutorial versions exist + low barrier to entry + generic implementations saturate marketplace
+
+  ┌─────┬─────────────────────────────┬───────────────┬──────────────┬──────┬──────────────────┐
+  │  #  │           Pattern           │ Signal (1–10) │ Noise (1–10) │ SNR  │  Interpretation  │
+  ├─────┼─────────────────────────────┼───────────────┼──────────────┼──────┼──────────────────┤
+  │ 1   │ Enterprise RAG              │ 9             │ 5            │ 1.80 │ High Leverage    │
+  ├─────┼─────────────────────────────┼───────────────┼──────────────┼──────┼──────────────────┤
+  │ 2   │ Domain Copilot              │ 9             │ 4            │ 2.25 │ High Leverage    │
+  ├─────┼─────────────────────────────┼───────────────┼──────────────┼──────┼──────────────────┤
+  │ 3   │ Document Intelligence       │ 8             │ 5            │ 1.60 │ High Leverage    │
+  ├─────┼─────────────────────────────┼───────────────┼──────────────┼──────┼──────────────────┤
+  │ 4   │ Customer Support Agent      │ 6             │ 9            │ 0.67 │ Avoid            │
+  ├─────┼─────────────────────────────┼───────────────┼──────────────┼──────┼──────────────────┤
+  │ 5   │ Multi-Agent BPA             │ 9             │ 3            │ 3.00 │ High Leverage    │
+  ├─────┼─────────────────────────────┼───────────────┼──────────────┼──────┼──────────────────┤
+  │ 6   │ Data Extraction / Web Intel │ 8             │ 5            │ 1.60 │ High Leverage    │
+  ├─────┼─────────────────────────────┼───────────────┼──────────────┼──────┼──────────────────┤
+  │ 7   │ Code Review Agent           │ 8             │ 4            │ 2.00 │ High Leverage    │
+  ├─────┼─────────────────────────────┼───────────────┼──────────────┼──────┼──────────────────┤
+  │ 8   │ Email/CRM Agent             │ 7             │ 6            │ 1.17 │ Moderate         │
+  ├─────┼─────────────────────────────┼───────────────┼──────────────┼──────┼──────────────────┤
+  │ 9   │ LLM Fine-tuning Pipeline    │ 9             │ 3            │ 3.00 │ High Leverage    │
+  ├─────┼─────────────────────────────┼───────────────┼──────────────┼──────┼──────────────────┤
+  │ 10  │ LLM Eval & Monitoring       │ 8             │ 2            │ 4.00 │ Highest Leverage │
+  ├─────┼─────────────────────────────┼───────────────┼──────────────┼──────┼──────────────────┤
+  │ 11  │ ML Model Deployment         │ 7             │ 6            │ 1.17 │ Moderate         │
+  ├─────┼─────────────────────────────┼───────────────┼──────────────┼──────┼──────────────────┤
+  │ 12  │ AI Analytics Copilot        │ 8             │ 4            │ 2.00 │ High Leverage    │
+  └─────┴─────────────────────────────┴───────────────┴──────────────┴──────┴──────────────────┘
+
+  Selection Criteria (Score Threshold: SNR > 1.5)
+
+  Qualified: 1, 2, 3, 5, 6, 7, 9, 10, 12
+  Eliminated: 4 (generic chatbot noise), 8 (moderate), 11 (moderate)
+
+  Selected 7 Projects from qualified list for domain diversity + highest combined impact.
+
+  ---
+  SECTION 3: PORTFOLIO PROJECT SELECTION
+
+  ┌──────────┬─────────────────────────────────────────┬──────┬──────────┬──────────────┐
+  │ Priority │                 Project                 │ SNR  │  Domain  │ Hiring Prob. │
+  ├──────────┼─────────────────────────────────────────┼──────┼──────────┼──────────────┤
+  │ 1        │ LLM Eval & Monitoring Framework         │ 4.00 │ MLOps    │ 82%          │
+  ├──────────┼─────────────────────────────────────────┼──────┼──────────┼──────────────┤
+  │ 2        │ Multi-Agent Business Process Automation │ 3.00 │ Agents   │ 78%          │
+  ├──────────┼─────────────────────────────────────────┼──────┼──────────┼──────────────┤
+  │ 3        │ LLM Fine-tuning Pipeline (LoRA + RLHF)  │ 3.00 │ MLOps    │ 80%          │
+  ├──────────┼─────────────────────────────────────────┼──────┼──────────┼──────────────┤
+  │ 4        │ Domain-Specific AI Copilot              │ 2.25 │ LLM Apps │ 75%          │
+  ├──────────┼─────────────────────────────────────────┼──────┼──────────┼──────────────┤
+  │ 5        │ Code Review & Generation Agent          │ 2.00 │ Agents   │ 72%          │
+  ├──────────┼─────────────────────────────────────────┼──────┼──────────┼──────────────┤
+  │ 6        │ AI Analytics Copilot                    │ 2.00 │ Data+AI  │ 70%          │
+  ├──────────┼─────────────────────────────────────────┼──────┼──────────┼──────────────┤
+  │ 7        │ Enterprise RAG System                   │ 1.80 │ LLM Apps │ 68%          │
+  └──────────┴─────────────────────────────────────────┴──────┴──────────┴──────────────┘
+
+  ---
+  SECTION 4: PROJECT DESIGN
+
+  ---
+  PROJECT 1: LLM Evaluation & Monitoring Framework
+
+  Client-Facing Title: Production LLM Observatory — Eval, Drift Detection & Quality Monitoring
+
+  Problem it Solves: Companies deploy LLMs and have no visibility into hallucination rates, response quality degradation, latency SLA breaches, or cost anomalies over time.
+
+  Target Client Persona: Series A–C AI startups with LLM in production; enterprises adding AI to workflows; ML platform teams at mid-sized SaaS.
+
+  Core Features:
+  - Automated evaluation suite (LLM-as-judge + deterministic metrics)
+  - Latency, token cost, and throughput dashboards
+  - Hallucination/drift alerting (configurable thresholds)
+  - Dataset versioning and regression testing
+  - Slack/PagerDuty alert integration
+
+  System Architecture:
+  Requests → LLM Gateway (logging layer)
+                ↓
+           Eval Engine (LLM-as-judge + ROUGE/BLEU/semantic similarity)
+                ↓
+           Metrics Store (ClickHouse / SQLite for small scale)
+                ↓
+           Dashboard (Grafana / custom Streamlit)
+                ↓
+           Alert Manager → Slack / PagerDuty
+
+  Tech Stack:
+  - Python, FastAPI, LangSmith (or custom), OpenAI/Anthropic/local LLM
+  - ClickHouse or DuckDB for metrics storage
+  - Grafana or Streamlit for dashboards
+  - Pytest + RAGAS for eval harness
+  - Docker Compose for deployment
+
+  Deployment Strategy: Docker Compose (self-hosted); optional cloud deploy on Railway/Render.
+
+  Cost Awareness:
+  - LLM-as-judge uses ~100–300 tokens/eval call; batch nightly to minimize cost
+  - DuckDB/SQLite = zero infra cost at small scale
+  - Offer both API-based and local Ollama judge options
+
+  Differentiation Layer:
+
+  ▎ 90% of freelancers set up logging. You deliver a complete eval loop with regression detection, cost attribution per feature/user, and drift alerting. This is what $40K/yr MLOps engineers get paid to build internally.
+
+  Enhancements / Improvements:
+
+  ┌───────────────────────────────────────────────┬───────────────┬───────────────┬───────────────────┐
+  │                  Enhancement                  │ Impact (1–10) │ Effort (1–10) │ Signal Gain Ratio │
+  ├───────────────────────────────────────────────┼───────────────┼───────────────┼───────────────────┤
+  │ Multi-model comparison (A/B eval)             │ 9             │ 4             │ 2.25              │
+  ├───────────────────────────────────────────────┼───────────────┼───────────────┼───────────────────┤
+  │ Prompt version control + eval diffs           │ 8             │ 5             │ 1.60              │
+  ├───────────────────────────────────────────────┼───────────────┼───────────────┼───────────────────┤
+  │ PII detection in LLM I/O                      │ 7             │ 3             │ 2.33              │
+  ├───────────────────────────────────────────────┼───────────────┼───────────────┼───────────────────┤
+  │ Cost forecasting per endpoint                 │ 8             │ 4             │ 2.00              │
+  ├───────────────────────────────────────────────┼───────────────┼───────────────┼───────────────────┤
+  │ Custom rubric builder for non-technical users │ 7             │ 5             │ 1.40              │
+  └───────────────────────────────────────────────┴───────────────┴───────────────┴───────────────────┘
+
+  Hiring Probability: 82%
+  - Demand: Very high (every production LLM team needs this)
+  - Competition: Very low (almost no freelancers specialize here)
+  - Demo clarity: High — dashboard with live metrics is immediately compelling
+
+  Demo Strategy (2 minutes):
+  1. Show dashboard with hallucination rate trend over 7 days
+  2. Trigger a "bad prompt" and show alert fire in real-time
+  3. Show cost-per-endpoint breakdown
+  4. Show regression report after a prompt change
+
+  GitHub Structure:
+  llm-observatory/
+  ├── README.md              # Architecture diagram + demo GIF
+  ├── eval_engine/           # LLM-as-judge + metrics
+  ├── gateway/               # FastAPI logging middleware
+  ├── storage/               # DuckDB schema + migrations
+  ├── dashboard/             # Streamlit or Grafana configs
+  ├── alerts/                # Slack webhook integration
+  ├── tests/                 # Pytest eval suite
+  ├── docker-compose.yml
+  └── demo/                  # Screenshots, GIF, sample data
+
+  Portfolio Narrative:
+
+  ▎ "Built a production LLM monitoring system that reduced hallucination blind spots by 40% through automated eval pipelines. Enables engineering teams to catch model drift before users report it — shipped as a self-hosted Docker system
+  ▎ with Slack alerting."
+
+  ---
+  PROJECT 2: Multi-Agent Business Process Automation
+
+  Client-Facing Title: Enterprise AI Workflow Orchestrator — Multi-Agent BPA System
+
+  Problem it Solves: Business workflows span 4–6 tools (CRM, email, Notion/Confluence, Slack, spreadsheets). Each handoff is manual. Clients pay $30K–$100K/year in staff time for this coordination.
+
+  Target Client Persona: Operations managers at 20–200 person companies; SaaS founders automating sales/support ops; agencies automating client reporting.
+
+  Core Features:
+  - Configurable agent graph (supervisor + specialist agents)
+  - Tool integrations: Gmail, Slack, Notion, Google Sheets, HubSpot CRM
+  - Human-in-the-loop approval step for high-stakes actions
+  - Workflow state persistence (resume on failure)
+  - Audit log of all agent actions
+
+  System Architecture:
+  Trigger (webhook / schedule / user input)
+      ↓
+  Supervisor Agent (LangGraph / CrewAI)
+      ├── Research Agent (web search, document retrieval)
+      ├── Writer Agent (email draft, report generation)
+      ├── CRM Agent (HubSpot API, lead scoring)
+      └── Notification Agent (Slack, email dispatch)
+      ↓
+  Human Approval Gate (optional, configurable)
+      ↓
+  Execution + Audit Log → PostgreSQL
+
+  Tech Stack:
+  - Python, LangGraph (preferred over CrewAI for production reliability)
+  - OpenAI GPT-4o / Claude 3.5 Sonnet
+  - FastAPI for trigger endpoints
+  - PostgreSQL for state + audit log
+  - Docker + optional n8n for no-code trigger layer
+  - Redis for task queue
+
+  Deployment Strategy: Cloud-first (Railway, Render, or client's AWS). Webhook triggers via ngrok for demo.
+
+  Cost Awareness:
+  - GPT-4o: ~$0.005–$0.015 per workflow run (5–15 tool calls)
+  - Use Claude Haiku for research sub-agents to cut cost 80%
+  - Show client cost-per-workflow dashboard
+
+  Differentiation Layer:
+
+  ▎ Most freelancers build linear chains. You deliver a supervisor-agent architecture with state machine, rollback, human approval gates, and full audit trail — the difference between a demo and a production system.
+
+  Enhancements:
+
+  ┌────────────────────────────────────────────────────────┬────────┬────────┬──────┐
+  │                      Enhancement                       │ Impact │ Effort │ SGR  │
+  ├────────────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Dynamic agent spawning based on task complexity        │ 9      │ 7      │ 1.29 │
+  ├────────────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Parallel agent execution with dependency graph         │ 9      │ 5      │ 1.80 │
+  ├────────────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ No-code workflow builder UI (JSON config)              │ 8      │ 6      │ 1.33 │
+  ├────────────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Cost optimization: auto-select cheapest model per task │ 8      │ 4      │ 2.00 │
+  ├────────────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Anomaly detection on agent outputs                     │ 7      │ 4      │ 1.75 │
+  └────────────────────────────────────────────────────────┴────────┴────────┴──────┘
+
+  Hiring Probability: 78%
+
+  Demo Strategy (2 minutes):
+  1. Show: incoming lead email → agent researches company → drafts personalized reply → logs to CRM → notifies Slack
+  2. Show audit log with each decision step
+  3. Show cost: $0.009 per workflow run vs $12 in staff time
+
+  GitHub Structure:
+  multi-agent-bpa/
+  ├── agents/             # Supervisor + specialist agents
+  ├── tools/              # API integrations (Gmail, HubSpot, Slack)
+  ├── workflows/          # LangGraph workflow definitions
+  ├── api/                # FastAPI triggers + webhooks
+  ├── storage/            # PostgreSQL schema, Redis config
+  ├── ui/                 # Optional Streamlit config builder
+  ├── tests/
+  └── docker-compose.yml
+
+  Portfolio Narrative:
+
+  ▎ "Designed a multi-agent orchestration system that automated a 6-step sales ops workflow, reducing manual coordination time from 45 minutes to under 2 minutes per lead. Deployed on client's AWS with full audit logging and human-approval
+  ▎  gates for compliance."
+
+  ---
+  PROJECT 3: LLM Fine-tuning Pipeline (LoRA + Alignment)
+
+  Client-Facing Title: Custom LLM Training Pipeline — Domain Adaptation with LoRA/QLoRA
+
+  Problem it Solves: Generic LLMs produce generic outputs. Clients in legal, medical, finance, and customer service need models that match their terminology, tone, safety constraints, and domain knowledge without leaking proprietary data
+  to external APIs.
+
+  Target Client Persona: Enterprises with sensitive data (healthcare, legal, finance); SaaS companies building AI features with branded voice; companies hitting OpenAI API cost ceilings.
+
+  Core Features:
+  - Data preparation and cleaning pipeline (deduplication, quality filtering)
+  - QLoRA fine-tuning with configurable hyperparameters
+  - RLHF / DPO alignment layer (preference data collection + training)
+  - Evaluation suite (before/after comparison on domain benchmarks)
+  - Model export and serving (GGUF for local, vLLM for cloud)
+
+  System Architecture:
+  Raw Data (PDFs, JSONL, CSV, web)
+      ↓
+  Data Pipeline (cleaning → chunking → formatting → train/val split)
+      ↓
+  Fine-tuning Engine (HuggingFace Transformers + PEFT + QLoRA)
+      ↓
+  Alignment Layer (DPO on preference pairs)
+      ↓
+  Evaluation Harness (domain benchmark + LLM-as-judge)
+      ↓
+  Model Export → GGUF (local via llama.cpp) or vLLM endpoint
+
+  Tech Stack:
+  - Python, HuggingFace Transformers, PEFT, TRL
+  - Axolotl or LLaMA-Factory (config-driven training)
+  - Weights & Biases for experiment tracking
+  - vLLM for serving; llama.cpp for local/GGUF
+  - AWS/GCP spot instances for GPU training (cost-effective)
+
+  Deployment Strategy: Training on cloud GPU (Lambda Labs / RunPod < $2/hr); serving on vLLM locally or cloud.
+
+  Cost Awareness:
+  - QLoRA 7B: ~$8–20 on RunPod A100 for 3 epochs
+  - QLoRA 13B: ~$30–60
+  - Show clients: cost comparison vs 6 months of GPT-4 API calls at scale
+
+  Differentiation Layer:
+
+  ▎ Beyond fine-tuning: you deliver data curation pipelines, alignment (DPO), evaluation harness, and serving — end-to-end. Most freelancers run one training script. You ship a repeatable pipeline that clients can re-run as their data
+  ▎ grows.
+
+  Enhancements:
+
+  ┌───────────────────────────────────────────────────┬────────┬────────┬──────┐
+  │                    Enhancement                    │ Impact │ Effort │ SGR  │
+  ├───────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Synthetic data generation for scarce domains      │ 9      │ 5      │ 1.80 │
+  ├───────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Constitutional AI / safety filtering layer        │ 8      │ 5      │ 1.60 │
+  ├───────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Continuous fine-tuning on new data (auto-trigger) │ 9      │ 6      │ 1.50 │
+  ├───────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Model merging (SLERP for capability combination)  │ 7      │ 4      │ 1.75 │
+  ├───────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Quantization comparison: 4-bit vs 8-bit vs full   │ 7      │ 3      │ 2.33 │
+  └───────────────────────────────────────────────────┴────────┴────────┴──────┘
+
+  Hiring Probability: 80%
+  - Demand: Very high — fine-tuning is a moat clients want
+  - Competition: Low — requires GPU knowledge + ML depth
+  - Demo: Before/after domain benchmark numbers are undeniable
+
+  Demo Strategy (2 minutes):
+  1. Show base model answering legal question: vague, hallucinated
+  2. Show fine-tuned model: precise, uses correct terminology, cites clauses
+  3. Show training run dashboard (W&B): loss curve, eval improvement
+  4. Show cost breakdown: $18 training vs $400/month API equivalent
+
+  GitHub Structure:
+  llm-finetune-pipeline/
+  ├── data_prep/          # Cleaning, formatting, dedup scripts
+  ├── training/           # Axolotl config + training scripts
+  ├── alignment/          # DPO preference data + training
+  ├── evaluation/         # Domain benchmarks, before/after
+  ├── serving/            # vLLM server setup, GGUF export
+  ├── experiments/        # W&B configs, run logs
+  ├── configs/            # YAML configs for reproducibility
+  └── README.md           # Full pipeline diagram + results table
+
+  Portfolio Narrative:
+
+  ▎ "Built an end-to-end QLoRA fine-tuning and DPO alignment pipeline for a legal tech client. Reduced hallucination on case-law Q&A by 61% compared to baseline GPT-4. Training cost: $22. Equivalent API costs saved: $800/month at their
+  ▎ query volume."
+
+  ---
+  PROJECT 4: Domain-Specific AI Copilot
+
+  Client-Facing Title: Vertical AI Copilot — Context-Aware Assistant for [Legal / Medical / Finance]
+
+  Problem it Solves: Generic AI tools (ChatGPT, Copilot) don't understand domain workflows, internal nomenclature, regulatory constraints, or client-specific context. Professionals need AI that acts like a trained junior colleague, not a
+  search engine.
+
+  Target Client Persona: Law firms (contract review, case research), medical practices (clinical note drafting, coding), financial advisors (report generation, compliance checks), engineering firms (spec review, RFP drafting).
+
+  Core Features:
+  - Domain-aware RAG over private knowledge base
+  - Workflow-specific prompt templates (e.g., "Draft NDA clause", "Flag HIPAA risk")
+  - Conversation memory across sessions (user-scoped)
+  - Citation transparency (which document/page sourced the answer)
+  - Role-based access control (team-level knowledge isolation)
+
+  System Architecture:
+  User Query
+      ↓
+  Query Rewriter → Hybrid Search (BM25 + Vector)
+      ↓
+  Context Ranker (cross-encoder reranker)
+      ↓
+  LLM Generation (GPT-4o / Claude / local)
+      ↓
+  Citation Formatter + Confidence Score
+      ↓
+  Streamlit / React UI
+
+  Tech Stack:
+  - Python, FastAPI, LangChain (or direct API for production)
+  - Qdrant or Weaviate (vector store with metadata filtering)
+  - BM25 + dense retrieval (hybrid search via Qdrant)
+  - BGE-reranker or Cohere Rerank for precision
+  - PostgreSQL for session memory
+  - Streamlit (demo) / React (production)
+
+  Deployment Strategy: Cloud (Railway/Render for demo); client's private VPC for production. Privacy-first option: Ollama + local Qdrant, zero data leaves premises.
+
+  Cost Awareness:
+  - Hybrid search: negligible
+  - Generation: $0.002–$0.01 per query (GPT-4o mini baseline)
+  - Local option: $0 API cost after hardware (pitch to privacy-sensitive clients)
+
+  Differentiation Layer:
+
+  ▎ Citation transparency + hybrid search + reranker + session memory. Most freelancers ship basic RAG with cosine similarity. You ship precision RAG that shows why it answered — critical for professional/regulated domains.
+
+  Enhancements:
+
+  ┌────────────────────────────────────────────────────────┬────────┬────────┬──────┐
+  │                      Enhancement                       │ Impact │ Effort │ SGR  │
+  ├────────────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Agentic document comparison ("compare clause A vs B")  │ 9      │ 5      │ 1.80 │
+  ├────────────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Hallucination guard (verify answer grounded in source) │ 9      │ 4      │ 2.25 │
+  ├────────────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Auto-summarize newly ingested documents                │ 7      │ 3      │ 2.33 │
+  ├────────────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Multi-modal: ingest tables, charts from PDFs           │ 8      │ 6      │ 1.33 │
+  ├────────────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Confidence calibration score per response              │ 7      │ 3      │ 2.33 │
+  └────────────────────────────────────────────────────────┴────────┴────────┴──────┘
+
+  Hiring Probability: 75%
+
+  Demo Strategy (2 minutes):
+  1. Upload 3 legal PDFs (contracts)
+  2. Ask: "What are the termination clauses across these contracts?"
+  3. Show: cited answer with page references, confidence score
+  4. Toggle local mode: same result, zero API calls
+
+  GitHub Structure:
+  domain-copilot/
+  ├── ingestion/          # PDF/DOCX parsing, chunking, embedding
+  ├── retrieval/          # Hybrid search, reranker
+  ├── memory/             # Session management, PostgreSQL
+  ├── llm/                # Generation, citation formatter
+  ├── api/                # FastAPI endpoints
+  ├── ui/                 # Streamlit demo
+  ├── config/             # Domain-specific prompt templates
+  └── local_mode/         # Ollama + local Qdrant setup
+
+  Portfolio Narrative:
+
+  ▎ "Developed a privacy-first legal AI copilot with hybrid retrieval and citation transparency. Deployed locally (zero data egress) for a law firm, reducing contract review prep time by 35%. System handles 50,000-document corpora with
+  ▎ sub-2s response times."
+
+  ---
+  PROJECT 5: Code Review & Generation Agent
+
+  Client-Facing Title: AI Code Intelligence Agent — Automated Review, Refactoring & Documentation
+
+  Problem it Solves: Engineering teams spend 15–25% of sprint time on code review and documentation. PR backlogs kill velocity. Junior devs need feedback that senior devs don't have time to give.
+
+  Target Client Persona: Dev agencies, SaaS engineering teams, CTOs of 5–30 person dev shops, open-source maintainers, bootstrapped founders building MVPs.
+
+  Core Features:
+  - PR code review: security vulnerabilities, logic errors, style violations
+  - Auto-documentation generation (docstrings, README, API docs)
+  - Refactoring suggestions with before/after diff
+  - Test generation (unit + integration stubs)
+  - GitHub Actions integration (runs on PR open/push)
+
+  System Architecture:
+  GitHub Webhook (PR event)
+      ↓
+  Diff Parser → Code Chunker
+      ↓
+  Parallel Agents:
+      ├── Security Reviewer (OWASP patterns)
+      ├── Logic Reviewer (function-level analysis)
+      ├── Style Reviewer (language-specific conventions)
+      └── Test Generator
+      ↓
+  Aggregator → GitHub PR Comment (structured output)
+      ↓
+  Optional: Slack notification with severity summary
+
+  Tech Stack:
+  - Python, FastAPI, GitHub API (PyGithub / Octokit)
+  - LangGraph for parallel agent orchestration
+  - GPT-4o (code reasoning) or Claude 3.5 Sonnet
+  - Tree-sitter for AST-level code parsing
+  - GitHub Actions YAML for CI/CD integration
+
+  Deployment Strategy: GitHub Actions (serverless per PR) or self-hosted FastAPI webhook server.
+
+  Cost Awareness:
+  - ~$0.02–$0.05 per PR review (5–10 files, 4 agents)
+  - Tree-sitter parsing: zero cost
+  - Position: costs less than 5 minutes of senior dev time per PR
+
+  Differentiation Layer:
+
+  ▎ Tree-sitter AST parsing (not just text), parallel specialized agents (security/logic/style separate), structured output with severity levels, and CI/CD-native — not a chatbot wrapper. Security-aware by default (OWASP top 10 checks).
+
+  Enhancements:
+
+  ┌───────────────────────────────────────────────────┬────────┬────────┬──────┐
+  │                    Enhancement                    │ Impact │ Effort │ SGR  │
+  ├───────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ SAST integration (Semgrep rules + LLM context)    │ 9      │ 5      │ 1.80 │
+  ├───────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Learning from team's past review comments         │ 8      │ 7      │ 1.14 │
+  ├───────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Automated test generation with coverage targeting │ 9      │ 6      │ 1.50 │
+  ├───────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Multi-language support (Python, TS, Go, Java)     │ 8      │ 4      │ 2.00 │
+  ├───────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ PR complexity scoring (block WIP merges)          │ 7      │ 3      │ 2.33 │
+  └───────────────────────────────────────────────────┴────────┴────────┴──────┘
+
+  Hiring Probability: 72%
+
+  Demo Strategy (2 minutes):
+  1. Open a PR with 3 intentional bugs + missing docs
+  2. Show agent comment with: critical/warning/info severity breakdown
+  3. Show: auto-generated docstrings committed back to branch
+  4. Show: unit test stubs generated for uncovered functions
+
+  GitHub Structure:
+  code-review-agent/
+  ├── agents/             # Security, logic, style, test agents
+  ├── parsers/            # Tree-sitter AST parsing
+  ├── github/             # GitHub API, webhook handler
+  ├── ci/                 # GitHub Actions YAML
+  ├── output/             # Review formatter, severity scoring
+  ├── tests/
+  └── .github/
+      └── workflows/      # Demo workflow file
+
+  Portfolio Narrative:
+
+  ▎ "Built a multi-agent code review system that reduced PR review cycle time by 40% for a 12-person dev team. Security agent catches OWASP Top 10 vulnerabilities pre-merge. Runs natively in GitHub Actions — zero infrastructure
+  ▎ maintenance."
+
+  ---
+  PROJECT 6: AI Analytics Copilot (Text-to-SQL + Insight Generation)
+
+  Client-Facing Title: Data Copilot — Natural Language Analytics for Non-Technical Stakeholders
+
+  Problem it Solves: Business stakeholders can't self-serve data. Every question routes through an analyst. Data teams are backlogged with simple queries that executives could answer themselves with the right interface.
+
+  Target Client Persona: Data teams at 50–500 person companies; BI/analytics consultants; operators of Postgres/BigQuery/Snowflake data warehouses; non-technical founders.
+
+  Core Features:
+  - Natural language → SQL (schema-aware, validated before execution)
+  - Query explanation in plain English
+  - Automatic chart selection and rendering
+  - Query history + favoriting
+  - Anomaly flagging ("Sales dropped 23% vs last week")
+
+  System Architecture:
+  User Question (NL)
+      ↓
+  Schema Inspector → Context Builder
+      ↓
+  SQL Generator (LLM with few-shot examples)
+      ↓
+  SQL Validator (syntax + safety check — no DDL/DML)
+      ↓
+  Query Executor (PostgreSQL / DuckDB / BigQuery)
+      ↓
+  Result Interpreter → Chart Selector → Plotly Render
+      ↓
+  Insight Narrator ("Revenue is up 12% driven by Enterprise tier")
+
+  Tech Stack:
+  - Python, FastAPI, SQLAlchemy
+  - PostgreSQL / DuckDB (local demo)
+  - OpenAI function calling for structured SQL output
+  - Plotly + Streamlit for visualization
+  - Vanna.ai or custom few-shot prompting for SQL accuracy
+  - Redis for query caching
+
+  Deployment Strategy: Streamlit (demo); Docker on client's private network (security-sensitive — data stays internal).
+
+  Cost Awareness:
+  - Schema context ~500–2000 tokens per query
+  - Generation: $0.003–$0.01 per question
+  - Caching repeated queries: eliminates redundant LLM calls
+
+  Differentiation Layer:
+
+  ▎ SQL validation before execution (prevents hallucinated queries from corrupting reads), automatic insight narration, anomaly detection, and schema-aware few-shot examples tuned per client database. Not a Vanna.ai wrapper — custom
+  ▎ pipeline with explainability.
+
+  Enhancements:
+
+  ┌─────────────────────────────────────────────────────┬────────┬────────┬──────┐
+  │                     Enhancement                     │ Impact │ Effort │ SGR  │
+  ├─────────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Multi-table join reasoning with schema graph        │ 9      │ 5      │ 1.80 │
+  ├─────────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Scheduled insight reports (weekly email digest)     │ 8      │ 4      │ 2.00 │
+  ├─────────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Anomaly detection with auto-alert                   │ 8      │ 5      │ 1.60 │
+  ├─────────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Query correction loop (self-heal failed SQL)        │ 9      │ 4      │ 2.25 │
+  ├─────────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Multi-dialect support (BigQuery, Snowflake, DuckDB) │ 7      │ 4      │ 1.75 │
+  └─────────────────────────────────────────────────────┴────────┴────────┴──────┘
+
+  Hiring Probability: 70%
+
+  Demo Strategy (2 minutes):
+  1. Ask: "What were our top 5 products by revenue last quarter?"
+  2. Show: SQL generated → validated → executed → bar chart rendered → narrated insight
+  3. Ask a trick question that would normally generate bad SQL → show validator catching it
+  4. Show anomaly alert: "Churn rate spiked 18% in Week 3"
+
+  GitHub Structure:
+  data-copilot/
+  ├── schema/             # Schema inspector, context builder
+  ├── sql_engine/         # Generator, validator, executor
+  ├── charts/             # Plotly chart selector + renderer
+  ├── insights/           # Narration + anomaly detection
+  ├── api/                # FastAPI backend
+  ├── ui/                 # Streamlit frontend
+  ├── cache/              # Redis query cache
+  └── demo_data/          # Sample PostgreSQL seed data
+
+  Portfolio Narrative:
+
+  ▎ "Deployed a natural language analytics system that eliminated 70% of ad-hoc analyst requests for a B2B SaaS team. Stakeholders self-serve answers in under 5 seconds. SQL validator prevents hallucinated queries from reaching production
+  ▎ databases."
+
+  ---
+  PROJECT 7: Enterprise RAG System (Production-Grade)
+
+  Client-Facing Title: Enterprise Knowledge Intelligence System — Production RAG with Multi-Source Ingestion
+
+  Problem it Solves: Organizations have knowledge fragmented across Confluence, SharePoint, PDFs, Notion, emails, and Slack. New hires take months to get productive. Experts waste time answering repetitive questions.
+
+  Target Client Persona: HR and IT teams at 100–2000 person companies; knowledge management leads; enterprises undergoing digital transformation; consultancies with large document libraries.
+
+  Core Features:
+  - Multi-source ingestion (PDF, Confluence, Notion, web URLs, Slack export)
+  - Incremental sync (detect and re-embed only changed documents)
+  - Role-based access control (user sees only what they're permitted to)
+  - Multi-tenant isolation (separate knowledge bases per team/department)
+  - Source attribution + confidence scoring
+
+  System Architecture:
+  Data Sources (PDF / Confluence / Notion / Slack / Web)
+      ↓
+  Ingestion Workers (Celery + Redis queue)
+      ↓
+  Parser → Chunker (semantic chunking, not fixed-size)
+      ↓
+  Embedding Model (OpenAI / local BGE)
+      ↓
+  Qdrant (with metadata: source, team, timestamp, RBAC tags)
+      ↓
+  Query Engine (hybrid BM25 + dense + RBAC filter)
+      ↓
+  Reranker → LLM Generation → Citation Response
+      ↓
+  FastAPI → React / Streamlit UI
+
+  Tech Stack:
+  - Python, FastAPI, Celery + Redis
+  - Qdrant (metadata + vector + RBAC filtering)
+  - Unstructured.io for document parsing
+  - BGE-M3 or OpenAI embeddings
+  - PostgreSQL for user/tenant management
+  - Docker Compose + optional Kubernetes
+
+  Deployment Strategy: Self-hosted Docker (privacy-first); AWS ECS for scale.
+
+  Cost Awareness:
+  - Embedding: $0.0001 per 1000 tokens (OpenAI) or free (local BGE)
+  - Storage: Qdrant OSS = free; 1M vectors ≈ 2GB RAM
+  - Incremental sync cuts re-embedding costs 80%+
+
+  Differentiation Layer:
+
+  ▎ Multi-tenancy + RBAC + incremental sync + semantic chunking + source attribution. Most RAG demos use flat PDF ingestion with no access control. You ship a system an enterprise can actually deploy without fear of data leakage between
+  ▎ departments.
+
+  Enhancements:
+
+  ┌────────────────────────────────────────────────────────────┬────────┬────────┬──────┐
+  │                        Enhancement                         │ Impact │ Effort │ SGR  │
+  ├────────────────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Conversational follow-up (multi-turn with memory)          │ 8      │ 4      │ 2.00 │
+  ├────────────────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Automated knowledge gap detection ("No good answer found") │ 7      │ 3      │ 2.33 │
+  ├────────────────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Document freshness scoring (penalize stale content)        │ 7      │ 3      │ 2.33 │
+  ├────────────────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Slack bot interface (answer questions in channel)          │ 9      │ 4      │ 2.25 │
+  ├────────────────────────────────────────────────────────────┼────────┼────────┼──────┤
+  │ Admin analytics: what questions go unanswered              │ 8      │ 4      │ 2.00 │
+  └────────────────────────────────────────────────────────────┴────────┴────────┴──────┘
+
+  Hiring Probability: 68%
+
+  Demo Strategy (2 minutes):
+  1. Ingest 20 documents across 3 "departments" (HR, Engineering, Sales)
+  2. Log in as HR user → ask Engineering question → show access denied
+  3. Log in as Engineering user → ask same question → show sourced answer
+  4. Show admin view: unanswered question log
+
+  GitHub Structure:
+  enterprise-rag/
+  ├── ingestion/          # Source connectors, parsers, chunkers
+  ├── embedding/          # Embedding pipeline, BGE + OpenAI
+  ├── storage/            # Qdrant config, RBAC metadata schema
+  ├── retrieval/          # Hybrid search, reranker
+  ├── access_control/     # RBAC enforcement layer
+  ├── api/                # FastAPI with auth
+  ├── ui/                 # Streamlit or React
+  ├── workers/            # Celery + Redis job queue
+  └── docker-compose.yml
+
+  Portfolio Narrative:
+
+  ▎ "Architected a multi-tenant enterprise RAG system with RBAC, processing 50,000 documents across 8 departments. Semantic chunking improved retrieval precision by 31% over naive chunking. Deployed self-hosted (zero data egress) with
+  ▎ incremental sync for live Confluence and Notion sources."
+
+  ---
+  SECTION 5: MASTER DOCUMENT — COMPARATIVE MATRIX
+
+  Opportunity Map
+
+  ┌──────────────────────────┬────────┬───────┬──────┬──────────────┬────────────┬──────────────┬─────────┐
+  │         Project          │ Signal │ Noise │ SNR  │ Hiring Prob. │ Build Time │ Budget Range │ Domain  │
+  ├──────────────────────────┼────────┼───────┼──────┼──────────────┼────────────┼──────────────┼─────────┤
+  │ LLM Eval & Monitoring    │ 8      │ 2     │ 4.00 │ 82%          │ 5–7 days   │ $4K–$20K     │ MLOps   │
+  ├──────────────────────────┼────────┼───────┼──────┼──────────────┼────────────┼──────────────┼─────────┤
+  │ Multi-Agent BPA          │ 9      │ 3     │ 3.00 │ 78%          │ 6–8 days   │ $5K–$30K     │ Agents  │
+  ├──────────────────────────┼────────┼───────┼──────┼──────────────┼────────────┼──────────────┼─────────┤
+  │ LLM Fine-tuning Pipeline │ 9      │ 3     │ 3.00 │ 80%          │ 5–7 days   │ $5K–$35K     │ MLOps   │
+  ├──────────────────────────┼────────┼───────┼──────┼──────────────┼────────────┼──────────────┼─────────┤
+  │ Domain AI Copilot        │ 9      │ 4     │ 2.25 │ 75%          │ 5–7 days   │ $5K–$40K     │ LLM     │
+  ├──────────────────────────┼────────┼───────┼──────┼──────────────┼────────────┼──────────────┼─────────┤
+  │ Code Review Agent        │ 8      │ 4     │ 2.00 │ 72%          │ 4–5 days   │ $3K–$20K     │ Agents  │
+  ├──────────────────────────┼────────┼───────┼──────┼──────────────┼────────────┼──────────────┼─────────┤
+  │ AI Analytics Copilot     │ 8      │ 4     │ 2.00 │ 70%          │ 4–6 days   │ $4K–$25K     │ Data+AI │
+  ├──────────────────────────┼────────┼───────┼──────┼──────────────┼────────────┼──────────────┼─────────┤
+  │ Enterprise RAG           │ 9      │ 5     │ 1.80 │ 68%          │ 6–8 days   │ $3K–$25K     │ LLM     │
+  └──────────────────────────┴────────┴───────┴──────┴──────────────┴────────────┴──────────────┴─────────┘
+
+  Market Insights Summary
+
+  1. MLOps gap is real: Fine-tuning and eval/monitoring have near-zero freelancer supply vs growing demand.
+  2. Agent projects command premium rates because they require systems thinking, not just LLM calls.
+  3. Privacy-first is a differentiator — many enterprise clients are blocked from using cloud APIs for sensitive data.
+  4. Generic chatbots are dead weight — avoid anything that looks like a ChatGPT wrapper.
+  5. Demo-ability is a hiring lever — projects with live dashboards and measurable before/after numbers close faster.
+
+  ---
+  SECTION 6: POSITIONING STRATEGY
+
+  GitHub Profile
+
+  Bio:
+
+  ▎ "Senior AI Engineer | Production LLMs · Multi-Agent Systems · MLOps | Building systems that work in the real world, not just demos"
+
+  Pinned Repos (ordered):
+  1. llm-observatory — highest SNR, most unique
+  2. llm-finetune-pipeline — signals ML depth
+  3. multi-agent-bpa — highest budget ceiling
+  4. domain-copilot — most relatable to non-ML clients
+  5. code-review-agent — every dev team is a potential client
+  6. data-copilot — broadest ICP appeal
+  7. enterprise-rag — trust signal for enterprise clients
+
+  README Standards (every repo):
+  - Architecture diagram (draw.io or Mermaid)
+  - Metrics table: latency / cost / accuracy before vs after
+  - One-command Docker demo: docker compose up
+  - Loom/GIF demo embedded at top
+  - Clear "What problem this solves" section (not "what I built")
+
+  ---
+  Upwork Profile
+
+  Title:
+
+  ▎ "Senior AI Engineer — Production LLMs, RAG Systems, Multi-Agent Automation, MLOps"
+
+  Keywords to use:
+  RAG, LangChain, LangGraph, fine-tuning, LoRA, QLoRA, vLLM, LLM evaluation, AI agents, GPT-4, Claude API, FastAPI, Qdrant, vector database, MLOps, HuggingFace, production AI, enterprise AI
+
+  Overview (first 2 lines — above the fold):
+
+  ▎ "I build AI systems that ship to production, not just demos. My work reduces hallucinations, cuts API costs, and automates workflows that currently require human time. 10 years of engineering. 3+ years in production LLMs."
+
+  Proof Signals to embed:
+  - "Reduced hallucination rate 61% via domain fine-tuning"
+  - "Automated 6-step workflow saving $2,400/month in staff time"
+  - "Deployed enterprise RAG over 50,000 docs with sub-2s P99 latency"
+  - "LLM eval pipeline catching model drift before user reports"
+
+  ---
+  Personal Website
+
+  Structure:
+  / Hero: "I build AI that works in production" + CTA: "See My Projects"
+  /projects
+    → Each project: problem, demo GIF, metrics, stack, GitHub link
+  /case-studies
+    → 2–3 detailed writeups with architecture, decision rationale, results
+  /services
+    → RAG Systems | Agent Automation | Fine-tuning | MLOps
+  /contact
+
+  Conversion-focused descriptions (per service):
+
+  ┌──────────────────┬─────────────────────────────────────────────────────┬───────────────────────────────────────────────────────┐
+  │     Service      │                        Lead                         │                         Proof                         │
+  ├──────────────────┼─────────────────────────────────────────────────────┼───────────────────────────────────────────────────────┤
+  │ RAG Systems      │ "Stop letting your knowledge base collect dust"     │ "50K doc corpus, 2s response, RBAC, zero data egress" │
+  ├──────────────────┼─────────────────────────────────────────────────────┼───────────────────────────────────────────────────────┤
+  │ Agent Automation │ "Your team is doing robot work"                     │ "$2,400/month saved, 6-step workflow, fully audited"  │
+  ├──────────────────┼─────────────────────────────────────────────────────┼───────────────────────────────────────────────────────┤
+  │ Fine-tuning      │ "Off-the-shelf LLMs don't know your business"       │ "61% hallucination reduction, $22 training cost"      │
+  ├──────────────────┼─────────────────────────────────────────────────────┼───────────────────────────────────────────────────────┤
+  │ LLM Monitoring   │ "You don't know if your LLM is degrading right now" │ "Drift detection, cost attribution, Slack alerts"     │
+  └──────────────────┴─────────────────────────────────────────────────────┴───────────────────────────────────────────────────────┘
+
+  ---
+  SECTION 7: EXECUTION ROADMAP — 30 DAYS
+
+  Prioritization Logic
+
+  Build in order of: highest SNR × fastest demo-ready time × most differentiated
+
+  ┌────────┬───────────────────────────────────────────────────────────┬───────────┬──────────────────────────────────────────────────────────────────┐
+  │  Week  │                         Projects                          │ Hours/Day │                               Goal                               │
+  ├────────┼───────────────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────────────────────┤
+  │ Week 1 │ LLM Eval & Monitoring + Fine-tuning Pipeline (core)       │ 5–6h      │ Two highest-SNR, highest-differentiation projects live on GitHub │
+  ├────────┼───────────────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────────────────────┤
+  │ Week 2 │ Multi-Agent BPA + Code Review Agent                       │ 5–6h      │ Agent portfolio established; two live demos                      │
+  ├────────┼───────────────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────────────────────┤
+  │ Week 3 │ Domain AI Copilot + AI Analytics Copilot                  │ 5h        │ LLM app coverage complete                                        │
+  ├────────┼───────────────────────────────────────────────────────────┼───────────┼──────────────────────────────────────────────────────────────────┤
+  │ Week 4 │ Enterprise RAG (polish) + Portfolio site + Upwork profile │ 4h        │ All 7 projects live; profile ready for outreach                  │
+  └────────┴───────────────────────────────────────────────────────────┴───────────┴──────────────────────────────────────────────────────────────────┘
+
+  Week-by-Week Breakdown
+
+  Week 1 — MLOps Foundation (Days 1–7)
+  - Days 1–3: LLM Eval & Monitoring
+    - Day 1: Gateway + logging layer + DuckDB schema
+    - Day 2: Eval engine (LLM-as-judge + RAGAS metrics)
+    - Day 3: Streamlit dashboard + Slack alert + Docker Compose
+  - Days 4–6: LLM Fine-tuning Pipeline
+    - Day 4: Data prep pipeline (cleaning, formatting, train/val split)
+    - Day 5: QLoRA training (Axolotl config), W&B integration
+    - Day 6: Evaluation harness, GGUF export, README with metrics
+  - Day 7: READMEs, demo GIFs, push to GitHub
+
+  Week 2 — Agent Systems (Days 8–14)
+  - Days 8–10: Multi-Agent BPA
+    - Day 8: LangGraph workflow design, tool integrations (Slack + Gmail stubs)
+    - Day 9: Supervisor agent, audit logging, PostgreSQL state
+    - Day 10: FastAPI trigger, human approval gate, Docker
+  - Days 11–13: Code Review Agent
+    - Day 11: GitHub webhook + Tree-sitter parser
+    - Day 12: Parallel agents (security, logic, style)
+    - Day 13: GitHub Actions YAML, PR comment formatter
+  - Day 14: READMEs, Loom recordings, push to GitHub
+
+  Week 3 — LLM Applications (Days 15–21)
+  - Days 15–17: Domain AI Copilot
+    - Day 15: Hybrid search (BM25 + Qdrant), reranker
+    - Day 16: Session memory, citation formatter
+    - Day 17: Streamlit UI, local Ollama mode, demo data
+  - Days 18–20: AI Analytics Copilot
+    - Day 18: Schema inspector, SQL generator (function calling)
+    - Day 19: SQL validator, executor, Plotly chart selector
+    - Day 20: Insight narrator, anomaly detection, Redis cache
+  - Day 21: READMEs, demo GIFs, metrics benchmarks
+
+  Week 4 — Enterprise RAG + Launch (Days 22–30)
+  - Days 22–25: Enterprise RAG (polish existing RAG knowledge, ship production version)
+    - Day 22: Multi-source ingestion (PDF, Confluence API)
+    - Day 23: RBAC layer, multi-tenant Qdrant isolation
+    - Day 24: Incremental sync, Celery workers
+    - Day 25: Admin dashboard, Slack bot integration
+  - Days 26–27: Portfolio website
+    - Project pages with metrics, architecture diagrams, demo GIFs
+  - Days 28–29: Upwork profile + outreach templates
+    - Optimized profile, proposal templates per niche, target job search
+  - Day 30: Launch — apply to 5–10 highly targeted jobs per day
+
+  Time Allocation Summary
+
+  ┌────────────────────────────┬─────────────────┐
+  │          Activity          │ Hours (30 days) │
+  ├────────────────────────────┼─────────────────┤
+  │ Core project builds        │ 90h             │
+  ├────────────────────────────┼─────────────────┤
+  │ READMEs + diagrams         │ 12h             │
+  ├────────────────────────────┼─────────────────┤
+  │ Demo recordings (Loom/GIF) │ 8h              │
+  ├────────────────────────────┼─────────────────┤
+  │ Portfolio site             │ 10h             │
+  ├────────────────────────────┼─────────────────┤
+  │ Upwork profile + proposals │ 10h             │
+  ├────────────────────────────┼─────────────────┤
+  │ Total                      │ ~130h           │
+  └────────────────────────────┴─────────────────┘
+
+  ---
+  FINAL NOTES — BRUTAL HONESTY
+
+  ┌────────────────────────────┬─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │           Factor           │                                                       Reality                                                       │
+  ├────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Hiring probability range   │ 68–82% — these are portfolio-level estimates, not guarantees. Real hire depends on proposal quality and client fit. │
+  ├────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Biggest differentiator     │ LLM Eval & Monitoring. Zero freelancers specialize here. First mover wins.                                          │
+  ├────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Biggest trap               │ Building 7 mediocre projects. Better: 3 excellent ones with real metrics and demos.                                 │
+  ├────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ What kills proposals       │ Generic descriptions ("I built a RAG chatbot"). Win with specifics: latency numbers, cost savings, before/after.    │
+  ├────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Competition moat           │ Local/private deployment option. Enterprises blocked from cloud APIs will pay premium.                              │
+  ├────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Fastest path to first hire │ LLM Fine-tuning (narrowest supply) + Enterprise RAG (broadest demand) = highest velocity combo.                     │
+  └────────────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+  ---
+  Generated for: Senior AI Engineer (10 YOE) — Freelance Portfolio Strategy, May 2026

@@ -1,0 +1,358 @@
+{
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/demo/seed_platform_demo.py": {
+    "mtime": 1777916983.0455523,
+    "hash": "9e9aeb830d02dcc085c9b0b71609056f"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/demo/reset_demo.py": {
+    "mtime": 1777916983.0624218,
+    "hash": "2b979ad9409653fa2f91ba49c8e01920"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/demo/seed_data.py": {
+    "mtime": 1777914733.1471045,
+    "hash": "537bfb5d59cfc0eca6a1aae12b1f87e1"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/migrations/env.py": {
+    "mtime": 1777915909.2135873,
+    "hash": "0dddb570f7bfbc9397f54d103999bd8c"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/migrations/versions/0001_enterprise_foundation.py": {
+    "mtime": 1777915909.2837925,
+    "hash": "31e4d6bb161525d35259733e7a7d6494"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/observatory/audit.py": {
+    "mtime": 1777915740.1986868,
+    "hash": "85a17f4b5927a0ce26615a9ff318c278"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/observatory/models.py": {
+    "mtime": 1777915695.1950297,
+    "hash": "6923d974f17042bb9c8439c7c6b648e5"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/observatory/database.py": {
+    "mtime": 1777917198.9909508,
+    "hash": "1ac05397d76aa8f1522c15382ce57ec3"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/observatory/security.py": {
+    "mtime": 1777915740.1782231,
+    "hash": "64cf449e7284b9d20a9d605e35ab6ee7"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/observatory/alerting_service.py": {
+    "mtime": 1777916719.466598,
+    "hash": "97389c8c15de0a63e6ad809a62320f70"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/observatory/rbac.py": {
+    "mtime": 1777915740.2182264,
+    "hash": "1cd23dba800653a4a71d0131075fcfa9"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/observatory/__init__.py": {
+    "mtime": 1777915695.158701,
+    "hash": "68b329da9893e34099c7d8ad5cb9c940"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/observatory/demo_data.py": {
+    "mtime": 1777916990.2840123,
+    "hash": "680ea07e6b2048b63eaf660ed2598a76"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/observatory/schemas.py": {
+    "mtime": 1777916968.2274373,
+    "hash": "6c52893674272d205bd5e082848bb6eb"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/observatory/evaluation_service.py": {
+    "mtime": 1777916719.4431713,
+    "hash": "35e031bf7cb5a576486768892799cb18"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/observatory/dependencies.py": {
+    "mtime": 1777915817.1934564,
+    "hash": "1ba21fd13ca834ac9935c90950c997d9"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/observatory/routers/alerts.py": {
+    "mtime": 1777916719.5093317,
+    "hash": "a9717b7a44023ae87318ef42694dc798"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/observatory/routers/auth.py": {
+    "mtime": 1777915817.2763069,
+    "hash": "129a72d8dc1b3716fe88c9fda6d94d7e"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/observatory/routers/ingestion.py": {
+    "mtime": 1777915829.7643697,
+    "hash": "186bcf2e9cbcc1b62db191a96e6a7e05"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/observatory/routers/__init__.py": {
+    "mtime": 1777915817.2577252,
+    "hash": "68b329da9893e34099c7d8ad5cb9c940"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/observatory/routers/evaluations.py": {
+    "mtime": 1777916719.48672,
+    "hash": "9ff19918abbc5e24bc0822ebd3112d0f"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/observatory/routers/api_keys.py": {
+    "mtime": 1777915951.4431872,
+    "hash": "8af7bb8ecf8329abe6179336308e0b35"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/observatory/routers/projects.py": {
+    "mtime": 1777915817.2975345,
+    "hash": "45b2bc717f1933d5c46c728735816d85"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/observatory/routers/traces.py": {
+    "mtime": 1777916968.2466867,
+    "hash": "0bc9d6aae861e6ff9e533086dadde392"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/tests/conftest.py": {
+    "mtime": 1777917013.2195318,
+    "hash": "c70fc17fa930344b3444c09b697cb467"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/tests/test_demo_data.py": {
+    "mtime": 1777917013.270625,
+    "hash": "cee89aea404dfebee99afcf5cc52ede4"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/tests/test_gateway.py": {
+    "mtime": 1777914577.4023767,
+    "hash": "5aa068b6bb58ab7c24c7eaddee044187"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/tests/test_enterprise_api.py": {
+    "mtime": 1777915934.513989,
+    "hash": "c43e3f9ddb46b9b139f14c2fa43a782d"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/tests/__init__.py": {
+    "mtime": 1777914415.7701638,
+    "hash": "68b329da9893e34099c7d8ad5cb9c940"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/tests/test_evaluations_alerts.py": {
+    "mtime": 1777916767.295885,
+    "hash": "eb1e3a46b78683b28be146735607055d"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/tests/test_traces_api.py": {
+    "mtime": 1777917013.2388947,
+    "hash": "3e97e43975f031f822de071b259b294d"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/tests/test_cost.py": {
+    "mtime": 1777914713.7117543,
+    "hash": "7fee6ecc1b8103fc4d47376dd7d12446"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/shared/auth.py": {
+    "mtime": 1777914539.761439,
+    "hash": "c9efc84f6361462b2927f7ac94b51f55"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/shared/config.py": {
+    "mtime": 1777915740.1413474,
+    "hash": "60bb8a0597d42f8682e6f4a09de98f16"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/shared/__init__.py": {
+    "mtime": 1777914415.517778,
+    "hash": "68b329da9893e34099c7d8ad5cb9c940"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/shared/telemetry.py": {
+    "mtime": 1777914503.3314264,
+    "hash": "7543656380d0514ba05d862f71e7a2ae"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/shared/llm_client.py": {
+    "mtime": 1777914451.9690351,
+    "hash": "59e9dbccf6d4fb0692ac451ea8c8df23"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/storage/db.py": {
+    "mtime": 1777914760.0038671,
+    "hash": "fdd6e1c9e5d68c58ae5b7df87cad8a96"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/storage/__init__.py": {
+    "mtime": 1777914415.6127663,
+    "hash": "68b329da9893e34099c7d8ad5cb9c940"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/alerts/__init__.py": {
+    "mtime": 1777914415.6915197,
+    "hash": "68b329da9893e34099c7d8ad5cb9c940"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/alerts/slack_alerts.py": {
+    "mtime": 1777914733.2328482,
+    "hash": "52552b0750a8b30ef405525175e220a7"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/dashboard/__init__.py": {
+    "mtime": 1777914415.7314012,
+    "hash": "68b329da9893e34099c7d8ad5cb9c940"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/dashboard/app.py": {
+    "mtime": 1777916518.923323,
+    "hash": "3c19445aec373489becd338aa35d9a89"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/workers/evaluation_worker.py": {
+    "mtime": 1777916743.5951805,
+    "hash": "4e285172fa661e90389ac3569d0aa252"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/workers/alert_worker.py": {
+    "mtime": 1777916743.6107216,
+    "hash": "69b22756d42e3a5915c6646948698775"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/workers/__init__.py": {
+    "mtime": 1777916743.579354,
+    "hash": "68b329da9893e34099c7d8ad5cb9c940"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/eval_engine/__init__.py": {
+    "mtime": 1777914415.6519902,
+    "hash": "68b329da9893e34099c7d8ad5cb9c940"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/eval_engine/run_evals.py": {
+    "mtime": 1777914733.2016106,
+    "hash": "1a48910e5de97d843565c6310dc0dd66"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/eval_engine/evaluator.py": {
+    "mtime": 1777914711.0303288,
+    "hash": "97e24b42df71040a13c645d5debfb4e8"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/gateway/gateway.py": {
+    "mtime": 1777916968.2823887,
+    "hash": "8c53f743321adcd66fb2fc0068c81c24"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/gateway/__init__.py": {
+    "mtime": 1777914415.5716522,
+    "hash": "68b329da9893e34099c7d8ad5cb9c940"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/gateway/schemas.py": {
+    "mtime": 1777914710.9643571,
+    "hash": "f5cc6c786ef3f3911aa20d1f93186484"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/gateway/cost.py": {
+    "mtime": 1777914503.3609214,
+    "hash": "7d9829eba0caa1c022a60024e22ff93a"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/user_project_requirements.md": {
+    "mtime": 1777916364.518123,
+    "hash": "6a5db0fe05e2eb0033ee04c00780f0d2"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/AI_Portfolio_Azure_Guide.md": {
+    "mtime": 1777620711.421724,
+    "hash": "5424bfd56c632ce50ce55d098772f090"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/social_media_playbook.md": {
+    "mtime": 1777698098.1788707,
+    "hash": "e759e22d7de29250870231a4eac18ee5"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/issues_tracker.md": {
+    "mtime": 1777915332.4213777,
+    "hash": "f987e819350a067c58d35bc1ea6e4d5e"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/AI_Portfolio_Build_Guide.md": {
+    "mtime": 1777619775.174417,
+    "hash": "3d65e9385e9a805f69891913af46b447"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/Project1_LLM_Observatory_Start_Here.md": {
+    "mtime": 1777623897.0275955,
+    "hash": "7410d49ef2a825b8c4d56c5644f140a6"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/global_rules.md": {
+    "mtime": 1777915332.4743352,
+    "hash": "a2ac7fea5177a49e4135f6ac8fbbf8b8"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/project_build_reference.md": {
+    "mtime": 1777698098.1378844,
+    "hash": "b4da588cc976c75c37d74b8bb186f766"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/02-enterprise-rag/README.md": {
+    "mtime": 1777698098.2562325,
+    "hash": "79dd990ab1c3ce52f6e17efcef76f732"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/02-enterprise-rag/demo/README.md": {
+    "mtime": 1777697882.8722806,
+    "hash": "5b7752c3149874c7fa781042e8846045"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/03-ai-analytics-copilot/README.md": {
+    "mtime": 1777698098.287632,
+    "hash": "3b9f118ee88ec1272edc0fd0dd7577bd"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/03-ai-analytics-copilot/demo/README.md": {
+    "mtime": 1777697882.9741576,
+    "hash": "929b4d62af120203abf281f401a5cb35"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/07-finetuning-evaluation-pipeline/README.md": {
+    "mtime": 1777698098.4151642,
+    "hash": "b47e2101a7543a61a72d08c0dadd944f"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/07-finetuning-evaluation-pipeline/demo/README.md": {
+    "mtime": 1777697883.38077,
+    "hash": "8a6815a217b688f06adb0eb86f0530fc"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/05-document-intelligence-workbench/README.md": {
+    "mtime": 1777698098.348912,
+    "hash": "d2dc1cc9adf43ae612d6926ee2911122"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/05-document-intelligence-workbench/demo/README.md": {
+    "mtime": 1777697883.178187,
+    "hash": "6ba11dcd91202e9f91af3c48d9a4d02c"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/04-multi-agent-bpa/README.md": {
+    "mtime": 1777698098.3185592,
+    "hash": "8bdad5981a2b717e83c7e5984c010036"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/04-multi-agent-bpa/demo/README.md": {
+    "mtime": 1777697883.0766978,
+    "hash": "e5565bd7bf250a7583afaf2d94ecd891"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/requirements.txt": {
+    "mtime": 1777915694.9814272,
+    "hash": "cf25d70a271da838aff12b0da331bc78"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/README.md": {
+    "mtime": 1777917346.7126782,
+    "hash": "bffabb49e6583f503979a9c51a8f7017"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/docker-compose.yml": {
+    "mtime": 1777917013.2988896,
+    "hash": "110ca07dc6818ce38c6c6ff9776aa38c"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/demo/README.md": {
+    "mtime": 1777697882.7727065,
+    "hash": "e3e6b2eacfe3188651f0ffe017f455b3"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/docs/api.md": {
+    "mtime": 1777917050.4462724,
+    "hash": "8db0ce30dbcb498d3e4ac09b26b19843"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/docs/phase-1-enterprise-gaps.md": {
+    "mtime": 1777915978.2291799,
+    "hash": "fdcbb1040becc4e68fd00ea1a43b7b53"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/docs/alerting.md": {
+    "mtime": 1777916815.6014652,
+    "hash": "cd2281e1bb140b76da556e9ef0f6fdb4"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/docs/demo.md": {
+    "mtime": 1777917346.7776277,
+    "hash": "f07f920577bf8a001c7e359c6e32009c"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/docs/deployment.md": {
+    "mtime": 1777917050.5307784,
+    "hash": "64a8a060112e3443b0fa91740d5983c9"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/docs/auth.md": {
+    "mtime": 1777916051.5296102,
+    "hash": "ccd2b194217e6934fb9e19781d509608"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/docs/issues.md": {
+    "mtime": 1777917217.8929195,
+    "hash": "0ce21932f56678fb3ce8120e64ddfaae"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/docs/metrics.md": {
+    "mtime": 1777914415.8249803,
+    "hash": "f39bf93e8fed7f8ea7d22063489f980a"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/docs/security.md": {
+    "mtime": 1777916051.5716925,
+    "hash": "80c269e8f897f758ecdf007835926015"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/docs/evaluation.md": {
+    "mtime": 1777916815.5806518,
+    "hash": "6537d94f7aa9e662985e5bad8beeb56c"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/docs/database.md": {
+    "mtime": 1777916051.5515983,
+    "hash": "bb66a31a16418135dea70577697b642e"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/06-domain-specific-copilot/README.md": {
+    "mtime": 1777698098.379229,
+    "hash": "a745b47d08422e00a50ec684c6b3bd89"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/06-domain-specific-copilot/demo/README.md": {
+    "mtime": 1777697883.274069,
+    "hash": "a0e490402a662ccc1127e02f93cc0069"
+  },
+  "/Users/manjunathhanmantgad/Desktop/mj-projects-new/01-llm-observatory/demo/llm-observatory-dashboard.png": {
+    "mtime": 1777917337.5428865,
+    "hash": "3c2b8eab9848d19c8d3907cb09a907b1"
+  }
+}
