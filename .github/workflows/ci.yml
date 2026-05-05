@@ -1,0 +1,41 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run tests
+        run: pytest -q
+      - name: Run local database migration
+        run: python scripts/migrate_database.py
+
+  release-guardrails:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Verify runtime integration config behavior
+        env:
+          REVIEWER_API_KEYS: ci-reviewer-key
+          ADMIN_TOKEN: ci-admin-token
+        run: python scripts/verify_live_integrations.py
+      - name: Validate public release artifact
+        run: python scripts/prepare_public_release.py --destination /tmp/document-intelligence-workbench-public

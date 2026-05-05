@@ -1,0 +1,5 @@
+Docker proof capture
+generated_at_utc=2026-05-05T19:22:13Z
+
+status=skip
+detail=docker command not found

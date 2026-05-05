@@ -1,0 +1,71 @@
+{
+  "generated_at_utc": "2026-05-05T19:23:36.316739+00:00",
+  "summary": {
+    "pass": 4,
+    "fail": 2,
+    "skip": 4,
+    "overall_status": "fail"
+  },
+  "scenarios": [
+    {
+      "scenario": "openai_mode",
+      "checks": [
+        {
+          "name": "openai_mode",
+          "status": "fail",
+          "detail": "OPENAI_API_KEY is required for openai mode"
+        },
+        {
+          "name": "azure_mode",
+          "status": "skip",
+          "detail": "set LLM_PROVIDER=azure to validate Azure mode"
+        },
+        {
+          "name": "azure_document_intelligence",
+          "status": "skip",
+          "detail": "set AZURE_DOCUMENT_INTELLIGENCE_ENDPOINT and AZURE_DOCUMENT_INTELLIGENCE_KEY"
+        },
+        {
+          "name": "auth_config",
+          "status": "pass",
+          "detail": "Authentication configured for AUTH_MODE=api_key"
+        },
+        {
+          "name": "database_config",
+          "status": "pass",
+          "detail": "SQLite local runtime configured"
+        }
+      ]
+    },
+    {
+      "scenario": "azure_mode",
+      "checks": [
+        {
+          "name": "openai_mode",
+          "status": "skip",
+          "detail": "set LLM_PROVIDER=openai to validate OpenAI mode"
+        },
+        {
+          "name": "azure_mode",
+          "status": "fail",
+          "detail": "Missing Azure OpenAI configuration: AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_KEY, AZURE_OPENAI_CHAT_DEPLOYMENT"
+        },
+        {
+          "name": "azure_document_intelligence",
+          "status": "skip",
+          "detail": "set AZURE_DOCUMENT_INTELLIGENCE_ENDPOINT and AZURE_DOCUMENT_INTELLIGENCE_KEY"
+        },
+        {
+          "name": "auth_config",
+          "status": "pass",
+          "detail": "Authentication configured for AUTH_MODE=oidc"
+        },
+        {
+          "name": "database_config",
+          "status": "pass",
+          "detail": "Postgres backend configuration is present"
+        }
+      ]
+    }
+  ]
+}
