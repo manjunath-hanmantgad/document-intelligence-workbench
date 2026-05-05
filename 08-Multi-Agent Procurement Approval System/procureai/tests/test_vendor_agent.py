@@ -13,12 +13,12 @@ class TestVendorAgent:
         assert len(result.risk_flags) == 0
 
     def test_blacklisted_vendor(self):
-        result = self.agent.check_vendor_status("DataLeak Inc")
+        result = self.agent.check_vendor_status("Veridata Analytics")
         assert result.vendor_status == "blacklisted"
         assert len(result.risk_flags) > 0
 
     def test_pending_vendor(self):
-        result = self.agent.check_vendor_status("UnknownSoft")
+        result = self.agent.check_vendor_status("Nexova Systems")
         assert result.vendor_status == "pending"
         assert len(result.risk_flags) > 0
 

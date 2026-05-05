@@ -1,8 +1,8 @@
-# Demo Walkthrough
+# Validation Walkthrough
 
 ## Scenario
 
-This demo shows the procurement approval workflow for a real-world purchase request submitted by Amit Sharma from the IT department for Adobe Creative Cloud licenses.
+This walkthrough covers the end-to-end procurement approval workflow across three representative request types: a standard conditional approval, a blacklisted vendor rejection, and a budget-exceeded rejection.
 
 ## Prerequisites
 
@@ -14,7 +14,7 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-## Seed Reference Data
+## Initialize Reference Data
 
 ```bash
 python -c "from app.db.seed import seed_all; seed_all()"
@@ -37,88 +37,100 @@ Dashboard opens at `http://localhost:8501`.
 
 ---
 
-## API Demo
+## Workflow Validation
 
-### Step 1: Submit a standard purchase request (conditional approval)
+### Step 1: Standard request — conditional approval
+
+Submit a software subscription request. Policy requires manager approval for amounts above 25,000 INR; the software category triggers a mandatory security review.
 
 ```bash
 curl -X POST http://127.0.0.1:8004/purchase-requests/analyze \
   -H "Content-Type: application/json" \
   -d '{
-    "request_id": "REQ-DEMO-001",
+    "request_id": "REQ-2024-IT-0401",
     "department": "IT",
     "requester": "Amit Sharma",
     "vendor": "Adobe",
     "category": "software_subscription",
     "amount": 85000,
-    "justification": "Need Adobe Creative Cloud licenses for design team",
+    "justification": "Adobe Creative Cloud annual licenses for the design team",
     "urgency": "normal"
   }'
 ```
 
-Expected: `conditional_approval` with `department_manager` and `security_team` as required approvers.
+Expected outcome: `conditional_approval` — required approvers: `department_manager`, `security_team`.
 
-### Step 2: Submit a request with a blacklisted vendor (rejection)
+### Step 2: Blacklisted vendor — automatic rejection
+
+Submit a request to a vendor that has been blacklisted in the vendor master. The Vendor Agent rejects the request immediately without proceeding to budget or policy checks.
 
 ```bash
 curl -X POST http://127.0.0.1:8004/purchase-requests/analyze \
   -H "Content-Type: application/json" \
   -d '{
-    "request_id": "REQ-DEMO-002",
-    "department": "IT",
-    "requester": "Priya Nair",
-    "vendor": "DataLeak Inc",
+    "request_id": "REQ-2024-FIN-0402",
+    "department": "Finance",
+    "requester": "Arun Kumar",
+    "vendor": "Veridata Analytics",
     "category": "data_services",
     "amount": 50000,
-    "justification": "Data enrichment services",
+    "justification": "Financial data enrichment and analytics platform",
     "urgency": "normal"
   }'
 ```
 
-Expected: `rejected` — vendor is blacklisted.
+Expected outcome: `rejected` — vendor is blacklisted.
 
-### Step 3: Submit a request exceeding department budget (rejection)
+### Step 3: Budget exceeded — rejection
+
+Submit a request that exceeds the HR department's available budget. The Budget Agent rejects the request after the vendor check passes.
 
 ```bash
 curl -X POST http://127.0.0.1:8004/purchase-requests/analyze \
   -H "Content-Type: application/json" \
   -d '{
-    "request_id": "REQ-DEMO-003",
+    "request_id": "REQ-2024-HR-0403",
     "department": "HR",
-    "requester": "Rajan Mehta",
+    "requester": "Rahul Verma",
     "vendor": "Oracle",
     "category": "software_subscription",
     "amount": 300000,
-    "justification": "Oracle HCM full-year license",
+    "justification": "Oracle HCM full-year enterprise license",
     "urgency": "high"
   }'
 ```
 
-Expected: `rejected` — HR budget insufficient.
+Expected outcome: `rejected` — HR department budget insufficient.
 
-### Step 4: Check request status
-
-```bash
-curl http://127.0.0.1:8004/purchase-requests/REQ-DEMO-001
-```
-
-### Step 5: View audit trail
+### Step 4: Retrieve request status
 
 ```bash
-curl http://127.0.0.1:8004/audit/REQ-DEMO-001
+curl http://127.0.0.1:8004/purchase-requests/REQ-2024-IT-0401
 ```
 
-### Step 6: List MCP tools
+### Step 5: Retrieve audit trail
+
+```bash
+curl http://127.0.0.1:8004/audit/REQ-2024-IT-0401
+```
+
+The audit log contains a sequential record of every agent action — orchestrator start, policy check, vendor check, budget check, risk check, and final approval — with timestamps.
+
+### Step 6: Inspect the MCP tool registry
 
 ```bash
 curl http://127.0.0.1:8004/mcp/tools
 ```
 
-### Step 7: Inspect A2A agent card
+Returns all seven registered tools with typed input and output schemas.
+
+### Step 7: Inspect an A2A agent card
 
 ```bash
 curl http://127.0.0.1:8004/agents/policy/card
 ```
+
+Returns the Policy Agent's capability declaration: name, description, capabilities, input/output schemas, and endpoint.
 
 ### Step 8: Send a direct A2A task
 
@@ -126,7 +138,7 @@ curl http://127.0.0.1:8004/agents/policy/card
 curl -X POST http://127.0.0.1:8004/agents/vendor/tasks \
   -H "Content-Type: application/json" \
   -d '{
-    "task_id": "task-manual-001",
+    "task_id": "TASK-2024-001",
     "from_agent": "orchestrator",
     "to_agent": "vendor",
     "task_type": "vendor_check",
@@ -134,15 +146,17 @@ curl -X POST http://127.0.0.1:8004/agents/vendor/tasks \
   }'
 ```
 
+Returns a structured task response with vendor status, risk level, and any risk flags.
+
 ---
 
 ## Screenshots
 
-**Submit Request form — before submission:**
+**Submit Request — multi-agent workflow form:**
 
 ![Dashboard](procureai-dashboard.png)
 
-**Workflow result — conditional approval with required approvers and evidence:**
+**Workflow result — conditional approval with required approvers and agent evidence:**
 
 ![Workflow Result](procureai-workflow-result.png)
 
@@ -156,16 +170,16 @@ curl -X POST http://127.0.0.1:8004/agents/vendor/tasks \
 
 ---
 
-## What the Demo Proves
+## System Capabilities
 
-| Capability | Where Visible |
-|------------|---------------|
+| Capability | Validation Point |
+|------------|-----------------|
 | Multi-agent orchestration | Audit log shows each agent action in sequence |
-| RAG policy retrieval | Policy findings include source clause |
-| Vendor validation | Vendor status and risk flags returned |
-| Budget checking | Remaining budget calculated |
-| Risk flagging | Risk level and flags included |
-| Structured decisions | Decision includes approvers, evidence, summary |
-| MCP tool exposure | Tools listed at `/mcp/tools` with schemas |
-| A2A agent communication | Agent cards at `/agents/{name}/card` |
-| Audit trail | Full log at `/audit/{request_id}` |
+| RAG policy retrieval | Policy findings include source clause reference |
+| Vendor validation | Vendor status and risk flags returned per agent card |
+| Budget verification | Remaining budget calculated against department allocation |
+| Risk analysis | Risk level and category flags included in findings |
+| Structured decisions | Decision packet includes approvers, evidence, and summary |
+| MCP tool exposure | All tools listed at `/mcp/tools` with typed schemas |
+| A2A agent communication | Agent cards served at `/agents/{name}/card` |
+| Audit trail | Complete per-request log at `/audit/{request_id}` |

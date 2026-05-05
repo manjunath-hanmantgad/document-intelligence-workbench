@@ -1,52 +1,52 @@
 [
   {
-    "request_id": "REQ-1001",
+    "request_id": "REQ-2024-IT-0401",
     "department": "IT",
     "requester": "Amit Sharma",
     "vendor": "Adobe",
     "category": "software_subscription",
     "amount": 85000,
-    "justification": "Need Adobe Creative Cloud licenses for design team",
+    "justification": "Adobe Creative Cloud annual licenses for the design and marketing team",
     "urgency": "normal"
   },
   {
-    "request_id": "REQ-1002",
+    "request_id": "REQ-2024-ENG-0402",
     "department": "Engineering",
     "requester": "Priya Patel",
     "vendor": "Dell",
     "category": "hardware",
     "amount": 1500000,
-    "justification": "New server infrastructure for ML training pipeline",
+    "justification": "GPU server infrastructure expansion for ML training workloads",
     "urgency": "high"
   },
   {
-    "request_id": "REQ-1003",
+    "request_id": "REQ-2024-HR-0403",
     "department": "HR",
     "requester": "Rahul Verma",
-    "vendor": "UnknownSoft",
+    "vendor": "Nexova Systems",
     "category": "software_subscription",
     "amount": 15000,
-    "justification": "HR management software subscription",
+    "justification": "HR performance management software — pending vendor compliance review",
     "urgency": "low"
   },
   {
-    "request_id": "REQ-1004",
+    "request_id": "REQ-2024-MKT-0404",
     "department": "Marketing",
     "requester": "Sneha Reddy",
     "vendor": "McKinsey",
     "category": "legal_services",
     "amount": 200000,
-    "justification": "Marketing strategy consulting engagement",
+    "justification": "Go-to-market strategy consulting engagement for Q3 product launch",
     "urgency": "normal"
   },
   {
-    "request_id": "REQ-1005",
+    "request_id": "REQ-2024-FIN-0405",
     "department": "Finance",
     "requester": "Arun Kumar",
-    "vendor": "DataLeak Inc",
+    "vendor": "Veridata Analytics",
     "category": "data_services",
     "amount": 50000,
-    "justification": "Data analytics platform subscription",
+    "justification": "Financial data enrichment and analytics platform",
     "urgency": "normal"
   }
 ]

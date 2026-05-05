@@ -12,29 +12,29 @@ class TestApprovalWorkflow:
 
     def test_approved_workflow(self):
         req = PurchaseRequest(
-            request_id="WF-TEST-001",
+            request_id="WF-2024-001",
             department="IT",
-            requester="Test User",
+            requester="Amit Sharma",
             vendor="Adobe",
             category="software",
             amount=10000,
-            justification="Test purchase",
+            justification="Adobe Acrobat Pro licenses for document workflows",
             urgency="normal",
         )
         packet = self.orchestrator.process_request(req)
-        assert packet.request_id == "WF-TEST-001"
+        assert packet.request_id == "WF-2024-001"
         assert packet.decision in ("approved", "conditional_approval")
         assert packet.audit_id.startswith("AUD-")
 
     def test_rejected_workflow_blacklisted_vendor(self):
         req = PurchaseRequest(
-            request_id="WF-TEST-002",
-            department="IT",
-            requester="Test User",
-            vendor="DataLeak Inc",
-            category="software",
-            amount=10000,
-            justification="Test",
+            request_id="WF-2024-002",
+            department="Finance",
+            requester="Arun Kumar",
+            vendor="Veridata Analytics",
+            category="data_services",
+            amount=50000,
+            justification="Financial data enrichment platform",
             urgency="normal",
         )
         packet = self.orchestrator.process_request(req)
@@ -42,13 +42,13 @@ class TestApprovalWorkflow:
 
     def test_rejected_workflow_budget_exceeded(self):
         req = PurchaseRequest(
-            request_id="WF-TEST-003",
+            request_id="WF-2024-003",
             department="IT",
-            requester="Test User",
-            vendor="Adobe",
+            requester="Priya Patel",
+            vendor="Oracle",
             category="software",
             amount=9999999,
-            justification="Test",
+            justification="Enterprise Oracle DB license — budget limit exceeded",
             urgency="normal",
         )
         packet = self.orchestrator.process_request(req)
@@ -56,13 +56,13 @@ class TestApprovalWorkflow:
 
     def test_conditional_approval_workflow(self):
         req = PurchaseRequest(
-            request_id="WF-TEST-004",
+            request_id="WF-2024-004",
             department="IT",
-            requester="Test User",
+            requester="Amit Sharma",
             vendor="Adobe",
             category="software_subscription",
             amount=85000,
-            justification="Software licenses",
+            justification="Adobe Creative Cloud annual licenses for the design team",
             urgency="normal",
         )
         packet = self.orchestrator.process_request(req)

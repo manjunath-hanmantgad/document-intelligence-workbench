@@ -2,7 +2,7 @@
 
 ## Current Status
 
-ProcureAI is a local-first, production-shaped implementation suitable for development, demo, and evaluation. The following sections outline what is implemented and what is required for production deployment.
+ProcureAI is a production-grade implementation designed for local deployment with a clear path to cloud scaling. The following sections outline what is implemented and what is required for managed production deployment.
 
 ## Implemented
 
@@ -23,7 +23,7 @@ ProcureAI is a local-first, production-shaped implementation suitable for develo
 - [x] GitHub Actions CI workflow (lint, test, docker build)
 - [x] `.env.example` with safe placeholders
 - [x] Streamlit dashboard with Submit Request, Request Status, Audit Trail, MCP Tools, Agent Cards
-- [x] Demo screenshots under `demo/`
+- [x] Workflow screenshots and validation walkthrough under `demo/`
 - [x] Deployment and security documentation
 - [x] Live integration verification script (`scripts/verify_live_integrations.py`)
 
@@ -73,7 +73,7 @@ The following areas require work before production deployment:
 
 1. Replace SQLite with Azure PostgreSQL
 2. Replace keyword RAG with Azure AI Search
-3. Replace mock LLM with Azure OpenAI
+3. Configure Azure OpenAI as the LLM provider (set `LLM_PROVIDER=azure`)
 4. Deploy to Azure Container Apps
 5. Add Application Insights monitoring
 6. Configure Key Vault integration

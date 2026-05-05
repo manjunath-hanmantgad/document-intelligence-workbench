@@ -7,7 +7,7 @@ services:
     ports:
       - "8004:8004"
     environment:
-      - LLM_PROVIDER=mock
+      - LLM_PROVIDER=rule-based
       - PROCUREAI_DB_PATH=/app/data/procureai.db
       - PROCUREAI_POLICY_PATH=/app/data/procurement_policy.md
       - APPROVAL_MATRIX_PATH=/app/data/approval_matrix.yaml

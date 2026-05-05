@@ -1,6 +1,6 @@
 # ProcureAI: Multi-Agent Procurement Approval System
 
-ProcureAI is a production-oriented multi-agent procurement approval system that demonstrates agent orchestration, MCP-style tool exposure, A2A-style agent communication, RAG-based policy checking, structured outputs, human-in-the-loop approval, audit logging, Docker deployment, and CI/CD.
+ProcureAI is a production-grade multi-agent procurement approval system implementing agent orchestration, MCP-style tool exposure, A2A-style agent communication, RAG-based policy checking, structured outputs, human-in-the-loop approval, audit logging, Docker deployment, and CI/CD.
 
 ## Business Use Case
 
@@ -127,7 +127,7 @@ Dashboard opens at `http://localhost:8501`.
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `LLM_PROVIDER` | LLM provider: `mock`, `openai`, or `azure` | `mock` |
+| `LLM_PROVIDER` | LLM provider: `rule-based`, `openai`, or `azure` | `rule-based` |
 | `OPENAI_API_KEY` | OpenAI API key | empty |
 | `OPENAI_MODEL` | OpenAI model name | `gpt-4o-mini` |
 | `PROCUREAI_DB_PATH` | SQLite database path | `data/procureai.db` |

@@ -51,7 +51,7 @@ python -c "from app.rag.ingest_policy import ingest_policy_document; ingest_poli
 
 These commands are idempotent — safe to re-run.
 
-## Demo Reset
+## Database Reset
 
 To reset the database to its initial seeded state:
 
@@ -152,4 +152,4 @@ See `.env.example` for the full list. Key operational variables:
 | `HOST` | `127.0.0.1` | Bind address |
 | `PORT` | `8004` | Listen port |
 | `CORS_ORIGINS` | `*` | Restrict in production |
-| `LLM_PROVIDER` | `mock` | `mock`, `openai`, or `azure` |
+| `LLM_PROVIDER` | `rule-based` | `rule-based`, `openai`, or `azure` |

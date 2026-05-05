@@ -1,7 +1,7 @@
 import os
 
 # LLM
-LLM_PROVIDER = os.environ.get("LLM_PROVIDER", "mock")
+LLM_PROVIDER = os.environ.get("LLM_PROVIDER", "rule-based")
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
 OPENAI_MODEL = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
 

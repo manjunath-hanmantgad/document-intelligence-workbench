@@ -134,7 +134,7 @@ class TestVendorAgentEdgeCases:
         assert result.vendor_status == "unknown"
 
     def test_banned_vendor_rejected(self):
-        result = self.agent.check_vendor_status("ShadyConsult")
+        result = self.agent.check_vendor_status("Meridian Advisory Group")
         assert result.vendor_status in ("banned", "blacklisted")
         assert len(result.risk_flags) > 0
 

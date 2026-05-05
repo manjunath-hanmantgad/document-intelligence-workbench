@@ -22,19 +22,19 @@ def verify_health():
             checks.append((f"A2A card: {agent}", client.get(f"/agents/{agent}/card")))
 
         request_payload = {
-            "request_id": "VERIFY-001",
+            "request_id": "REQ-INT-2024-001",
             "department": "IT",
-            "requester": "Verification",
+            "requester": "Integration Runner",
             "vendor": "Adobe",
             "category": "software_subscription",
             "amount": 85000,
-            "justification": "Verification test",
+            "justification": "Adobe Creative Cloud licenses for design team — integration validation",
             "urgency": "normal",
         }
         checks.append(("Analyze purchase request", client.post("/purchase-requests/analyze", json=request_payload)))
 
-        checks.append(("Get request status", client.get("/purchase-requests/VERIFY-001")))
-        checks.append(("Get audit log", client.get("/audit/VERIFY-001")))
+        checks.append(("Get request status", client.get("/purchase-requests/REQ-INT-2024-001")))
+        checks.append(("Get audit log", client.get("/audit/REQ-INT-2024-001")))
 
     all_pass = True
     for name, response in checks:

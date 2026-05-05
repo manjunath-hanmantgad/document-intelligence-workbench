@@ -1,11 +1,11 @@
 vendor_id,vendor_name,status,risk_level,categories
 VND-001,Adobe,approved,low,software_subscription
-VND-002,UnknownSoft,pending,high,software_subscription
+VND-002,Nexova Systems,pending,high,software_subscription
 VND-003,Dell,approved,low,hardware
 VND-004,Microsoft,approved,low,software_subscription
-VND-005,DataLeak Inc,blacklisted,high,data_services
+VND-005,Veridata Analytics,blacklisted,high,data_services
 VND-006,Amazon Web Services,approved,low,cloud_infrastructure
 VND-007,McKinsey,pending,medium,legal_services
 VND-008,Slack Technologies,approved,low,software_subscription
-VND-009,ShadyConsult,banned,high,consulting
+VND-009,Meridian Advisory Group,banned,high,consulting
 VND-010,Oracle,approved,low,software_subscription

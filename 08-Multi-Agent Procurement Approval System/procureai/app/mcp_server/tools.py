@@ -48,13 +48,13 @@ def _search_policy_docs(query: str, top_k: int = 3) -> List[dict]:
 
 def _validate_policy_compliance(department: str, vendor: str, amount: float, category: str) -> dict:
     req = PurchaseRequest(
-        request_id="tool-call",
+        request_id="MCP-POLICY-CHECK",
         department=department,
-        requester="system",
+        requester="MCP Server",
         vendor=vendor,
         category=category,
         amount=amount,
-        justification="Tool invocation",
+        justification="MCP tool call — policy compliance check",
     )
     return policy_agent.validate_policy_compliance(req).model_dump()
 
@@ -70,12 +70,12 @@ def _check_budget_availability(department: str, amount: float) -> dict:
 def _detect_duplicate_request(request_id: str, vendor: str, amount: float) -> dict:
     req = PurchaseRequest(
         request_id=request_id,
-        department="unknown",
-        requester="system",
+        department="Operations",
+        requester="MCP Server",
         vendor=vendor,
-        category="unknown",
+        category="general",
         amount=amount,
-        justification="Tool invocation",
+        justification="MCP tool call — duplicate request check",
     )
     return risk_agent.detect_duplicate_request(req).model_dump()
 
