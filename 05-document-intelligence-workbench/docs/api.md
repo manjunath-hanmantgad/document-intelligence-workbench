@@ -43,7 +43,7 @@ Base URL: `http://127.0.0.1:8005`
 
 ```json
 {
-  "file_name": "invoice-sample.txt",
+  "file_name": "invoice-record.txt",
   "document_type": "invoice",
   "content": "Vendor: Apex Office Supplies\nInvoice Number: INV-2026-0042\n..."
 }

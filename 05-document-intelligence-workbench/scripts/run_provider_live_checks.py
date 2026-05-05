@@ -71,7 +71,7 @@ def main() -> int:
                 "OIDC_ALGORITHMS": "HS256",
                 "OIDC_HS256_SHARED_SECRET": "local-test-secret",
                 "DOCINT_DATABASE_BACKEND": "postgres",
-                "DOCINT_DATABASE_URL": "postgresql://demo:demo@localhost:5432/demo",
+                "DOCINT_DATABASE_URL": "postgresql://appuser:appuser@localhost:5432/docint",
                 "LLM_PROVIDER": "azure",
                 "AZURE_OPENAI_ENDPOINT": os.getenv("AZURE_OPENAI_ENDPOINT", ""),
                 "AZURE_OPENAI_KEY": os.getenv("AZURE_OPENAI_KEY", ""),

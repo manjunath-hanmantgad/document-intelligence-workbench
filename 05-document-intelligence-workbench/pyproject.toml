@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "document-intelligence-workbench"
 version = "0.1.0"
-description = "Local-first structured extraction, validation workflow, and review for operational documents."
+description = "Production-grade structured extraction, validation workflow, and review for operational documents."
 requires-python = ">=3.11"
 authors = [{ name = "Manjunath Hanmantgad" }]
 readme = "README.md"

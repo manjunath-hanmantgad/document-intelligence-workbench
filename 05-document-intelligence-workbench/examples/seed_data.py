@@ -29,10 +29,10 @@ def main() -> int:
     service = DocumentWorkbenchService(
         database_path=settings.database_path,
         low_confidence_threshold=settings.low_confidence_threshold,
-        evaluation_set_path=Path("demo/evaluation_set.json"),
+        evaluation_set_path=Path("examples/evaluation_set.json"),
     )
-    service.process_document("invoice-sample.txt", INVOICE_CONTENT, "invoice")
-    service.process_document("contract-sample.txt", CONTRACT_CONTENT, "contract")
+    service.process_document("invoice-record.txt", INVOICE_CONTENT, "invoice")
+    service.process_document("contract-record.txt", CONTRACT_CONTENT, "contract")
     print("Seed data ingested into", settings.database_path)
     return 0
 

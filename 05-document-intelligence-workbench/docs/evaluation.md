@@ -1,6 +1,6 @@
 # Evaluation
 
-Evaluation uses `demo/evaluation_set.json` and reports:
+Evaluation uses `examples/evaluation_set.json` and reports:
 
 - total cases
 - passed cases

@@ -21,7 +21,7 @@ def build_service() -> DocumentWorkbenchService:
     return DocumentWorkbenchService(
         database_path=settings.database_path,
         low_confidence_threshold=settings.low_confidence_threshold,
-        evaluation_set_path=Path("demo/evaluation_set.json"),
+        evaluation_set_path=Path("examples/evaluation_set.json"),
         database_backend=settings.database_backend,
         database_url=settings.database_url,
         llm_provider=settings.llm_provider,

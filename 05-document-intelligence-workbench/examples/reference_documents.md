@@ -1,4 +1,4 @@
-# Invoice Sample
+# Invoice Record
 Vendor: Apex Office Supplies
 Invoice Number: INV-2026-0042
 Invoice Date: 2026-04-29
@@ -7,7 +7,7 @@ Tax: 125.00
 Total: 1375.00
 Currency: USD
 
-# Contract Sample
+# Contract Record
 Party 1: Northwind Logistics
 Party 2: Skyline Procurement Services
 Effective Date: 2026-01-01

@@ -1,6 +1,6 @@
 # Public-Ready Report Artifact
 
-- generated_at_utc: `2026-05-05T19:23:36.320565+00:00`
+- generated_at_utc: `2026-05-05T19:42:28.304040+00:00`
 
 ## Validation Summary
 - pytest: `pass`
@@ -9,9 +9,9 @@
 - provider live-check overall status: `fail`
 
 ## Screenshot Assets
-- `demo/workbench-dashboard.png`: `present`
-- `demo/workbench-review-table.png`: `present`
-- `demo/workbench-export.png`: `present`
+- `examples/workbench-dashboard.png`: `present`
+- `examples/workbench-review-table.png`: `present`
+- `examples/workbench-export.png`: `present`
 
 ## Artifacts
 - provider output: `artifacts/provider_live_check_output.json` (`present`)

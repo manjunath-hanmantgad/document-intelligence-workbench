@@ -11,7 +11,7 @@
 - `GET /jobs` for queue depth and processing status visibility.
 - `GET /audit/events` for reviewer action history.
 - `POST /evaluation/run` for reference-data quality checks.
-- Validate auth posture: `AUTH_MODE=api_key` for local/demo or `AUTH_MODE=oidc` for enterprise identity integration.
+- Validate auth posture: `AUTH_MODE=api_key` for local validation or `AUTH_MODE=oidc` for enterprise identity integration.
 
 ## Runbook
 

@@ -1,6 +1,6 @@
 # Production Readiness
 
-Current status: local-first implementation complete for extraction, validation workflow, role-scoped review queues, async processing queue foundation, and exports.
+Current status: production-grade implementation complete for extraction, validation workflow, role-scoped review queues, async processing queue foundation, and exports.
 
 ## Completed
 
