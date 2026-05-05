@@ -1,0 +1,15 @@
+.env
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.pyc
+*.pyo
+*.db
+*.sqlite
+*.duckdb
+storage/*.db
+storage/*.sqlite
+storage/*.duckdb
+.DS_Store

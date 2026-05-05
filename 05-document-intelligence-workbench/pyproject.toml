@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "document-intelligence-workbench"
+version = "0.1.0"
+description = "Local-first structured extraction, validation workflow, and review for operational documents."
+requires-python = ">=3.11"
+authors = [{ name = "Manjunath Hanmantgad" }]
+readme = "README.md"
+license = { text = "MIT" }
+dependencies = [
+  "fastapi==0.115.0",
+  "pydantic==2.9.2",
+  "python-multipart==0.0.12",
+  "PyJWT[crypto]==2.10.1",
+  "psycopg[binary]==3.2.12",
+]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+include = ["docint_workbench*"]

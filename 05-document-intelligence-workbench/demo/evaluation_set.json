@@ -1,0 +1,22 @@
+[
+  {
+    "name": "invoice_total_validation_case",
+    "document_type": "invoice",
+    "content": "Vendor: Apex Office Supplies\nInvoice Number: INV-2026-0042\nInvoice Date: 2026-04-29\nSubtotal: 1250.00\nTax: 125.00\nTotal: 1375.00\nCurrency: USD",
+    "expected_fields": {
+      "vendor_name": "Apex Office Supplies",
+      "invoice_number": "INV-2026-0042",
+      "total": "1375.00"
+    }
+  },
+  {
+    "name": "contract_dates_case",
+    "document_type": "contract",
+    "content": "Party 1: Northwind Logistics\nParty 2: Skyline Procurement Services\nEffective Date: 2026-01-01\nExpiry Date: 2027-01-01\nPayment Terms: Net 30\nAuto Renewal: No",
+    "expected_fields": {
+      "party_one": "Northwind Logistics",
+      "party_two": "Skyline Procurement Services",
+      "expiry_date": "2027-01-01"
+    }
+  }
+]
