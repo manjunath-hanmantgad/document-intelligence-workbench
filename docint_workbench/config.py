@@ -164,7 +164,7 @@ def get_settings() -> Settings:
         oidc_subject_claim=os.getenv("OIDC_SUBJECT_CLAIM", "sub"),
         oidc_role_scope_map=oidc_role_scope_map,
         admin_token=os.getenv("ADMIN_TOKEN", "local-admin-token"),
-        llm_provider=os.getenv("LLM_PROVIDER", "mock"),
+        llm_provider=os.getenv("LLM_PROVIDER", "deterministic"),
         openai_api_key=os.getenv("OPENAI_API_KEY", ""),
         openai_model=os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
         azure_openai_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT", ""),

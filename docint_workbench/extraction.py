@@ -77,7 +77,7 @@ def extract_fields_with_provider(
     azure_openai_chat_deployment: str,
 ) -> Iterable[ExtractedField]:
     provider = llm_provider.strip().lower()
-    if provider == "mock":
+    if provider == "deterministic":
         return extract_fields(content, document_type)
     if provider == "openai":
         return _extract_with_openai(content, document_type, openai_api_key, openai_model)

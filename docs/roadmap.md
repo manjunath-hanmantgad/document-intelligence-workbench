@@ -2,7 +2,7 @@
 
 ## Implemented
 
-- Local-first API and dashboard
+- Production-grade API and dashboard
 - Deterministic invoice and contract extraction profiles
 - Confidence scoring and review-required flags
 - Validation workflow and export endpoints

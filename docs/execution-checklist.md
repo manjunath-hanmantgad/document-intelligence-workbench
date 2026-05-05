@@ -9,7 +9,7 @@ This checklist defines the implementation plan, ownership, and exit criteria to 
 | Governance files | Engineering | `LICENSE`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SECURITY.md`, and `CHANGELOG.md` exist at repo root and are internally consistent. | Completed |
 | Public artifact guardrails | Engineering | `scripts/prepare_public_release.py` enforces required public files and rejects forbidden artifacts. | Completed |
 | CI release gates | Engineering | CI runs tests and public artifact validation on push/PR. | Completed |
-| Demo assets | Product + Engineering | Dashboard screenshots in `demo/` are current and referenced from README/demo docs. | Completed |
+| Evidence assets | Product + Engineering | Dashboard screenshots in `examples/` are current and referenced from README and walkthrough docs. | Completed |
 
 ## Phase 2: Enterprise Runtime Hardening
 

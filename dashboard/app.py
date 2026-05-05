@@ -109,7 +109,7 @@ with st.sidebar:
 
     st.divider()
     st.subheader("Process Text")
-    file_name = st.text_input("File name", value="invoice-sample.txt")
+    file_name = st.text_input("File name", value="invoice-record.txt")
     doc_type = st.selectbox("Document type", options=["unknown", "invoice", "contract"], index=0)
     content = st.text_area("Document content", height=180)
     if st.button("Run Text Extraction", type="primary"):

@@ -1,6 +1,6 @@
 # Document Intelligence Workbench
 
-Document Intelligence Workbench is a local-first document operations system that extracts structured fields from invoices and contracts, assigns confidence scores, validates business rules, routes low-confidence outputs for human review, and exports clean JSON/CSV records.
+Document Intelligence Workbench is a production-grade document operations system that extracts structured fields from invoices and contracts, assigns confidence scores, validates business rules, routes low-confidence outputs for human review, and exports clean JSON/CSV records.
 
 ## Business Use Case
 
@@ -40,7 +40,7 @@ python3.12 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 cp .env.example .env
 .venv/bin/python scripts/migrate_database.py
-.venv/bin/python demo/seed_data.py
+.venv/bin/python examples/seed_data.py
 .venv/bin/uvicorn docint_workbench.api:app --host 127.0.0.1 --port 8005
 ```
 
@@ -65,7 +65,7 @@ curl -X POST http://127.0.0.1:8005/documents/process \
   -H "X-API-Key: local-reviewer-key" \
   -H "Content-Type: application/json" \
   -d '{
-    "file_name":"invoice-sample.txt",
+    "file_name":"invoice-record.txt",
     "document_type":"invoice",
     "content":"Vendor: Apex Office Supplies\nInvoice Number: INV-2026-0042\nInvoice Date: 2026-04-29\nSubtotal: 1250.00\nTax: 125.00\nTotal: 1375.00\nCurrency: USD"
   }'
@@ -79,7 +79,7 @@ curl -X POST http://127.0.0.1:8005/documents/process-async \
     "content":"Vendor: Apex Office Supplies\nInvoice Number: INV-2026-0043\nInvoice Date: 2026-04-30\nSubtotal: 500.00\nTax: 50.00\nTotal: 550.00\nCurrency: USD"
   }'
 
-curl -F "file=@demo/reference_documents.md" \
+curl -F "file=@examples/reference_documents.md" \
   -H "X-API-Key: local-reviewer-key" \
   "http://127.0.0.1:8005/documents/upload?document_type=invoice"
 
@@ -109,9 +109,9 @@ curl -X POST \
 
 ## Screenshots
 
-- `demo/workbench-dashboard.png`
-- `demo/workbench-review-table.png`
-- `demo/workbench-export.png`
+- `examples/workbench-dashboard.png`
+- `examples/workbench-review-table.png`
+- `examples/workbench-export.png`
 
 ## Environment Variables
 
@@ -135,9 +135,9 @@ Core local variables:
 - `OIDC_HS256_SHARED_SECRET`: optional shared secret for HS algorithms (recommended only for local/CI testing).
 - `OIDC_ROLE_CLAIM`, `OIDC_SUBJECT_CLAIM`, `OIDC_ROLE_SCOPE_MAP`: role extraction and domain scope mapping for OIDC mode.
 - `ADMIN_TOKEN`: admin token required for `/evaluation/run` when `AUTH_MODE=api_key`.
-- `LLM_PROVIDER`: `mock`, `openai`, or `azure`.
+- `LLM_PROVIDER`: `deterministic`, `openai`, or `azure`.
 - `LOG_LEVEL`: structured application log level (`INFO` default).
-- `DASHBOARD_ALLOW_SECRET_PREFILL`: `false` by default; set `true` only for controlled local demos if dashboard auth fields should prefill from env values.
+- `DASHBOARD_ALLOW_SECRET_PREFILL`: `false` by default; set `true` only for controlled internal validation runs if dashboard auth fields should prefill from env values.
 
 Azure-ready placeholders are included in `.env.example` and remain optional for local mode.
 
@@ -155,7 +155,7 @@ Implemented operational metrics:
 
 - No secrets are committed.
 - `.env.example` contains placeholders only.
-- Local storage uses SQLite for deterministic demo runs.
+- Local storage uses SQLite for deterministic validation runs.
 - Azure credential-dependent integrations are separated from local runtime.
 
 ## Azure Deployment Notes
@@ -187,4 +187,4 @@ Repository governance and release policy files:
 
 ## Implementation Summary
 
-This phase delivers a runnable local-first backend and review dashboard, deterministic extraction profiles, validation rules, export endpoints, evaluation runner, seed data, tests, CI workflow, Docker runtime files, and production-oriented documentation. Cloud integrations are represented with Azure-ready configuration placeholders and external verification script hooks.
+This phase delivers a runnable production-grade backend and review dashboard, deterministic extraction profiles, validation rules, export endpoints, evaluation runner, seed data, tests, CI workflow, Docker runtime files, and production-oriented documentation. Cloud integrations are represented with Azure-ready configuration placeholders and external verification script hooks.

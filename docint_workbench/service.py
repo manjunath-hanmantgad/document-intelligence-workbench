@@ -36,7 +36,7 @@ class DocumentWorkbenchService:
         evaluation_set_path: Path,
         database_backend: str = "sqlite",
         database_url: str = "",
-        llm_provider: str = "mock",
+        llm_provider: str = "deterministic",
         openai_api_key: str = "",
         openai_model: str = "gpt-4o-mini",
         azure_openai_endpoint: str = "",

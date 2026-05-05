@@ -1,4 +1,4 @@
-# Demo Workflow
+# Operational Workflow
 
 ## Scenario
 
@@ -7,7 +7,7 @@ Finance operations receives a monthly vendor invoice and legal operations receiv
 ## Steps
 
 1. Start API and dashboard from the README quick start.
-2. Run `python demo/seed_data.py` to load reference invoice and contract examples.
+2. Run `python examples/seed_data.py` to load reference invoice and contract records.
 3. Open dashboard and inspect review-required indicators.
 4. Upload a new invoice file through `/documents/upload` with an intentional total mismatch to trigger validation failure.
 5. Apply a manual review correction through the review endpoint.
@@ -16,9 +16,9 @@ Finance operations receives a monthly vendor invoice and legal operations receiv
 
 ## Assets
 
-- Reference text sample: `demo/reference_documents.md`
-- Evaluation set: `demo/evaluation_set.json`
+- Reference text set: `examples/reference_documents.md`
+- Evaluation set: `examples/evaluation_set.json`
 - Captured screenshots:
-  - `demo/workbench-dashboard.png`
-  - `demo/workbench-review-table.png`
-  - `demo/workbench-export.png`
+  - `examples/workbench-dashboard.png`
+  - `examples/workbench-review-table.png`
+  - `examples/workbench-export.png`

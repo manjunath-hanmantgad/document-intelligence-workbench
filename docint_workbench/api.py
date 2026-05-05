@@ -36,7 +36,7 @@ logger = configure_logging(settings.log_level)
 service = DocumentWorkbenchService(
     database_path=settings.database_path,
     low_confidence_threshold=settings.low_confidence_threshold,
-    evaluation_set_path=Path("demo/evaluation_set.json"),
+    evaluation_set_path=Path("examples/evaluation_set.json"),
     database_backend=settings.database_backend,
     database_url=settings.database_url,
     llm_provider=settings.llm_provider,
@@ -412,7 +412,7 @@ def audit_events(
 
 @app.post("/evaluation/run", response_model=EvaluationResult)
 def evaluation_run(_: None = Depends(require_admin)) -> EvaluationResult:
-    eval_path = Path("demo/evaluation_set.json")
+    eval_path = Path("examples/evaluation_set.json")
     if not eval_path.exists():
-        raise HTTPException(status_code=404, detail="Evaluation set not found at demo/evaluation_set.json")
+        raise HTTPException(status_code=404, detail="Evaluation set not found at examples/evaluation_set.json")
     return run_evaluation(eval_path)

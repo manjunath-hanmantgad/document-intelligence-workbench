@@ -1,7 +1,7 @@
 # Security Considerations
 
 - `.env.example` contains placeholders only.
-- Local demo runtime stores metadata in SQLite under `storage/`.
+- Local runtime stores metadata in SQLite under `storage/`.
 - Secrets must be injected at runtime through environment variables.
 - Reviewer operations are protected by `AUTH_MODE=api_key` (`X-API-Key`) or `AUTH_MODE=oidc` (`Authorization: Bearer`).
 - `REVIEWER_ROLE_MAP` assigns reviewer keys to `ops`, `finance`, `legal`, or `admin` roles.

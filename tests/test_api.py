@@ -23,7 +23,7 @@ def test_api_health_and_process(tmp_path: Path) -> None:
     assert health.json()["status"] == "ok"
 
     payload = {
-        "file_name": "invoice-sample.txt",
+        "file_name": "invoice-record.txt",
         "document_type": "invoice",
         "content": "Vendor: Apex Office Supplies\nInvoice Number: INV-1\nInvoice Date: 2026-04-29\nSubtotal: 100\nTax: 10\nTotal: 110\nCurrency: USD",
     }
@@ -31,7 +31,7 @@ def test_api_health_and_process(tmp_path: Path) -> None:
     assert response.status_code == 200
     body = response.json()
     assert body["document_type"] == "invoice"
-    assert body["file_name"] == "invoice-sample.txt"
+    assert body["file_name"] == "invoice-record.txt"
 
     async_response = client.post("/documents/process-async", json=payload, headers=reviewer_headers)
     assert async_response.status_code == 200

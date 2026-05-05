@@ -49,9 +49,9 @@ def main() -> int:
     provider_code, provider_out = _run(["./venv/bin/python", "scripts/run_provider_live_checks.py"])
 
     screenshot_files = [
-        ROOT / "demo/workbench-dashboard.png",
-        ROOT / "demo/workbench-review-table.png",
-        ROOT / "demo/workbench-export.png",
+        ROOT / "examples/workbench-dashboard.png",
+        ROOT / "examples/workbench-review-table.png",
+        ROOT / "examples/workbench-export.png",
     ]
     provider_artifact = ARTIFACT_DIR / "provider_live_check_output.json"
     docker_artifact = ARTIFACT_DIR / "docker_proof_output.txt"

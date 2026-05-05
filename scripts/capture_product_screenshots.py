@@ -6,7 +6,7 @@ from playwright.sync_api import sync_playwright
 
 
 DASHBOARD_URL = "http://127.0.0.1:8512"
-OUTPUT_DIR = Path(__file__).resolve().parents[1] / "demo"
+OUTPUT_DIR = Path(__file__).resolve().parents[1] / "examples"
 
 
 def main() -> int:
@@ -58,7 +58,7 @@ def main() -> int:
         )
 
         browser.close()
-    print("Captured demo screenshots in demo/")
+    print("Captured screenshots in examples/")
     return 0
 
 

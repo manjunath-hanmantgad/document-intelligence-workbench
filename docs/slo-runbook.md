@@ -23,7 +23,7 @@
    - rising `failed_jobs` indicates parsing/provider/data regressions.
 3. Check HTTP status distribution for 5xx spikes.
 4. Verify provider-specific credentials and endpoint reachability.
-5. Roll back recent changes or switch `LLM_PROVIDER=mock` as emergency fallback if provider path is unstable.
+5. Roll back recent changes or switch `LLM_PROVIDER=deterministic` as emergency fallback if provider path is unstable.
 
 ## Recovery Playbook
 
