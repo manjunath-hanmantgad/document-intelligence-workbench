@@ -91,7 +91,7 @@ def _parse_with_azure_document_intelligence(
     endpoint: str,
     api_key: str,
 ) -> str:
-    if not endpoint or not api_key:
+    if not endpoint:
         return ""
     content_type = {
         ".pdf": "application/pdf",
@@ -106,18 +106,33 @@ def _parse_with_azure_document_intelligence(
         f"{endpoint.rstrip('/')}/documentintelligence/documentModels/prebuilt-read:analyze"
         "?api-version=2024-11-30"
     )
-    headers = {
-        "Ocp-Apim-Subscription-Key": api_key,
-        "Content-Type": content_type,
-    }
+
+    # Primary: API key (local dev). Fallback: DefaultAzureCredential bearer token (Azure Container Apps).
+    if api_key:
+        auth_headers: dict[str, str] = {"Ocp-Apim-Subscription-Key": api_key}
+        poll_auth_headers: dict[str, str] = {"Ocp-Apim-Subscription-Key": api_key}
+    else:
+        try:
+            from azure.identity import DefaultAzureCredential
+            token = DefaultAzureCredential().get_token("https://cognitiveservices.azure.com/.default").token
+        except Exception:
+            return ""
+        auth_headers = {"Authorization": f"Bearer {token}"}
+        poll_auth_headers = {"Authorization": f"Bearer {token}"}
+
     try:
-        submit = requests.post(analyze_url, headers=headers, data=payload, timeout=30)
+        submit = requests.post(
+            analyze_url,
+            headers={**auth_headers, "Content-Type": content_type},
+            data=payload,
+            timeout=30,
+        )
         submit.raise_for_status()
         operation_location = submit.headers.get("Operation-Location", "")
         if not operation_location:
             return ""
         for _ in range(30):
-            poll = requests.get(operation_location, headers={"Ocp-Apim-Subscription-Key": api_key}, timeout=15)
+            poll = requests.get(operation_location, headers=poll_auth_headers, timeout=15)
             poll.raise_for_status()
             result = poll.json()
             status = str(result.get("status", "")).lower()

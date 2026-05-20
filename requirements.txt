@@ -12,3 +12,5 @@ pytesseract==0.3.13
 python-multipart==0.0.12
 PyJWT[crypto]==2.10.1
 psycopg[binary]==3.2.12
+prometheus-client>=0.21.0
+azure-identity>=1.17.0

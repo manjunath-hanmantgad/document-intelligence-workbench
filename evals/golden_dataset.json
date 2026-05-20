@@ -1,0 +1,162 @@
+{
+  "version": "1.0",
+  "project": "document-intelligence-workbench",
+  "cases": [
+    {
+      "id": "extract-001",
+      "description": "invoice fields are extracted from structured invoice text",
+      "category": "extraction",
+      "input": {
+        "content": "Vendor: Apex Office Supplies\nInvoice Number: INV-2026-0042\nInvoice Date: 2026-04-29\nSubtotal: 1250.00\nTax: 125.00\nTotal: 1375.00\nCurrency: USD",
+        "requested_type": "invoice"
+      },
+      "expected": {
+        "document_type": "invoice",
+        "fields": {
+          "vendor_name": "Apex Office Supplies",
+          "invoice_number": "INV-2026-0042",
+          "total": "1375.00",
+          "currency": "USD"
+        }
+      },
+      "requires_live_llm": false
+    },
+    {
+      "id": "extract-002",
+      "description": "contract fields are extracted from contract text",
+      "category": "extraction",
+      "input": {
+        "content": "Party 1: Northwind Logistics\nParty 2: Skyline Procurement Services\nEffective Date: 2026-01-01\nExpiry Date: 2027-01-01\nPayment Terms: Net 30\nAuto Renewal: No",
+        "requested_type": "contract"
+      },
+      "expected": {
+        "document_type": "contract",
+        "fields": {
+          "party_one": "Northwind Logistics",
+          "party_two": "Skyline Procurement Services",
+          "expiry_date": "2027-01-01"
+        }
+      },
+      "requires_live_llm": false
+    },
+    {
+      "id": "extract-003",
+      "description": "unknown type auto-detects invoice",
+      "category": "extraction",
+      "input": {
+        "content": "Invoice Date: 2026-05-01\nSubtotal: 100.00\nTax: 10.00\nTotal: 110.00",
+        "requested_type": "unknown"
+      },
+      "expected": {
+        "document_type": "invoice",
+        "fields": {
+          "subtotal": "100.00",
+          "tax": "10.00",
+          "total": "110.00"
+        }
+      },
+      "requires_live_llm": false
+    },
+    {
+      "id": "extract-004",
+      "description": "requested contract type overrides auto-detection",
+      "category": "extraction",
+      "input": {
+        "content": "Vendor: Contoso\nInvoice Number: INV-19\nTotal: 99.00",
+        "requested_type": "contract"
+      },
+      "expected": {
+        "document_type": "contract",
+        "fields": {
+          "party_one": "",
+          "party_two": ""
+        }
+      },
+      "requires_live_llm": false
+    },
+    {
+      "id": "validation-001",
+      "description": "invoice validation passes when subtotal plus tax equals total",
+      "category": "validation",
+      "input": {
+        "document_type": "invoice",
+        "fields": {
+          "subtotal": "100.00",
+          "tax": "10.00",
+          "total": "110.00"
+        }
+      },
+      "expected": {"status": "pass", "message_contains": "passed"},
+      "requires_live_llm": false
+    },
+    {
+      "id": "validation-002",
+      "description": "invoice validation fails when totals mismatch",
+      "category": "validation",
+      "input": {
+        "document_type": "invoice",
+        "fields": {
+          "subtotal": "100.00",
+          "tax": "10.00",
+          "total": "120.00"
+        }
+      },
+      "expected": {"status": "fail", "message_contains": "mismatch"},
+      "requires_live_llm": false
+    },
+    {
+      "id": "validation-003",
+      "description": "contract validation passes for valid ISO date range",
+      "category": "validation",
+      "input": {
+        "document_type": "contract",
+        "fields": {
+          "effective_date": "2026-01-01",
+          "expiry_date": "2026-12-31"
+        }
+      },
+      "expected": {"status": "pass", "message_contains": "passed"},
+      "requires_live_llm": false
+    },
+    {
+      "id": "validation-004",
+      "description": "contract validation fails for invalid date format",
+      "category": "validation",
+      "input": {
+        "document_type": "contract",
+        "fields": {
+          "effective_date": "01-01-2026",
+          "expiry_date": "2026-12-31"
+        }
+      },
+      "expected": {"status": "fail", "message_contains": "ISO format"},
+      "requires_live_llm": false
+    },
+    {
+      "id": "confidence-001",
+      "description": "matched field pattern returns high confidence",
+      "category": "confidence",
+      "input": {
+        "pattern": "(?m)^vendor\\s*:\\s*(.+)$",
+        "text": "Vendor: Apex Office Supplies",
+        "key": "vendor_name",
+        "threshold": 0.8
+      },
+      "expected": {"reliable": true, "confidence": 0.94},
+      "requires_live_llm": false
+    },
+    {
+      "id": "confidence-002",
+      "description": "missing field pattern returns low confidence",
+      "category": "confidence",
+      "input": {
+        "pattern": "(?m)^invoice\\s*number\\s*:\\s*(.+)$",
+        "text": "Vendor: Apex Office Supplies",
+        "key": "invoice_number",
+        "threshold": 0.8
+      },
+      "expected": {"reliable": false, "confidence": 0.35},
+      "requires_live_llm": false
+    }
+  ]
+}

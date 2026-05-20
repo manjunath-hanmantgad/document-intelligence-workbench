@@ -2,8 +2,9 @@ from __future__ import annotations
 
 import json
 import logging
-import threading
 from datetime import datetime, timezone
+
+from prometheus_client import CollectorRegistry, Counter, Histogram, generate_latest
 
 
 LOGGER_NAME = "docint_workbench"
@@ -45,45 +46,50 @@ def log_event(logger: logging.Logger, level: str, event: str, **fields: object) 
 
 class MetricsRegistry:
     def __init__(self) -> None:
-        self._lock = threading.Lock()
-        self._counters: dict[tuple[str, tuple[tuple[str, str], ...]], float] = {}
-        self._histograms: dict[tuple[str, tuple[tuple[str, str], ...]], list[float]] = {}
+        self._registry = CollectorRegistry(auto_describe=True)
+        self._counters: dict[str, Counter] = {}
+        self._counter_labels: dict[str, tuple[str, ...]] = {}
+        self._histograms: dict[str, Histogram] = {}
+        self._histogram_labels: dict[str, tuple[str, ...]] = {}
+
+    def _counter(self, name: str, label_names: tuple[str, ...]) -> Counter:
+        existing = self._counter_labels.get(name)
+        if existing is None:
+            self._counter_labels[name] = label_names
+            self._counters[name] = Counter(name, name, labelnames=label_names, registry=self._registry)
+        elif existing != label_names:
+            raise ValueError(f"Counter '{name}' used with inconsistent labels: {existing} vs {label_names}")
+        return self._counters[name]
+
+    def _histogram(self, name: str, label_names: tuple[str, ...]) -> Histogram:
+        existing = self._histogram_labels.get(name)
+        if existing is None:
+            self._histogram_labels[name] = label_names
+            self._histograms[name] = Histogram(name, name, labelnames=label_names, registry=self._registry)
+        elif existing != label_names:
+            raise ValueError(
+                f"Histogram '{name}' used with inconsistent labels: {existing} vs {label_names}"
+            )
+        return self._histograms[name]
 
     def inc(self, name: str, value: float = 1.0, **labels: str) -> None:
-        key = (name, tuple(sorted(labels.items())))
-        with self._lock:
-            self._counters[key] = self._counters.get(key, 0.0) + value
+        label_names = tuple(sorted(labels.keys()))
+        counter = self._counter(name, label_names)
+        if label_names:
+            counter.labels(**{key: labels[key] for key in label_names}).inc(value)
+        else:
+            counter.inc(value)
 
     def observe(self, name: str, value: float, **labels: str) -> None:
-        key = (name, tuple(sorted(labels.items())))
-        with self._lock:
-            bucket = self._histograms.setdefault(key, [])
-            bucket.append(value)
+        label_names = tuple(sorted(labels.keys()))
+        histogram = self._histogram(name, label_names)
+        if label_names:
+            histogram.labels(**{key: labels[key] for key in label_names}).observe(value)
+        else:
+            histogram.observe(value)
 
     def render_prometheus(self) -> str:
-        lines: list[str] = []
-        with self._lock:
-            for (name, labels), value in sorted(self._counters.items(), key=lambda item: item[0][0]):
-                lines.append(f"{name}{_fmt_labels(labels)} {value}")
-            for (name, labels), values in sorted(self._histograms.items(), key=lambda item: item[0][0]):
-                if not values:
-                    continue
-                count = len(values)
-                total = sum(values)
-                minimum = min(values)
-                maximum = max(values)
-                lines.append(f"{name}_count{_fmt_labels(labels)} {count}")
-                lines.append(f"{name}_sum{_fmt_labels(labels)} {total}")
-                lines.append(f"{name}_min{_fmt_labels(labels)} {minimum}")
-                lines.append(f"{name}_max{_fmt_labels(labels)} {maximum}")
-        return "\n".join(lines) + ("\n" if lines else "")
-
-
-def _fmt_labels(labels: tuple[tuple[str, str], ...]) -> str:
-    if not labels:
-        return ""
-    parts = [f'{key}="{value}"' for key, value in labels]
-    return "{" + ",".join(parts) + "}"
+        return generate_latest(self._registry).decode("utf-8")
 
 
 metrics = MetricsRegistry()

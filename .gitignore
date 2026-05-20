@@ -6,10 +6,16 @@ __pycache__/
 .ruff_cache/
 *.pyc
 *.pyo
+# Runtime databases - never commit
 *.db
+*.db-shm
+*.db-wal
 *.sqlite
 *.duckdb
 storage/*.db
+storage/*.db-shm
+storage/*.db-wal
 storage/*.sqlite
 storage/*.duckdb
+data/*.db
 .DS_Store
