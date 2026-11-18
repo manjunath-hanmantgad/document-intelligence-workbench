@@ -31,7 +31,7 @@ Files included: 70
 
 ### provider_live_checks
 ```text
-Provider live-check artifact written: /Users/manjunathhanmantgad/Desktop/mj-projects-new/05-document-intelligence-workbench/artifacts/provider_live_check_output.json
+Provider live-check artifact written: ./artifacts/provider_live_check_output.json
 ```
 
 ### provider_live_check_failures
